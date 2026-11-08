@@ -347,7 +347,7 @@
     }
   
     /* ========================================================
-       EXECUTIVE DARK MODE SYSTEM (APPLE/VERCEL HIGHLIGHTS)
+       EXECUTIVE DARK MODE SYSTEM (100% HIGH CONTRAST & LEGIBILITY)
        ======================================================== */
     .dark {
       color-scheme: dark;
@@ -357,7 +357,7 @@
       color: #f1f5f9 !important;
     }
     .dark header {
-      background-color: rgba(7, 11, 20, 0.88) !important;
+      background-color: rgba(7, 11, 20, 0.92) !important;
       border-color: rgba(30, 41, 59, 0.8) !important;
     }
     .dark header h1 {
@@ -374,146 +374,159 @@
       background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1.2px, transparent 1.2px) !important;
     }
 
-    /* SECTIONS */
+    /* --------------------------------------------------------
+       1. UNIVERSAL TEXT & HEADING CONTRAST FIXES
+       -------------------------------------------------------- */
+    .dark h1,
+    .dark h2,
+    .dark h3,
+    .dark h4,
+    .dark h5,
+    .dark h6,
+    .dark strong,
+    .dark .text-slate-900,
+    .dark .text-slate-800 {
+      color: #f8fafc !important; /* Pure crisp white for all titles */
+    }
+
+    .dark p,
+    .dark .text-slate-600,
+    .dark .text-slate-700 {
+      color: #cbd5e1 !important; /* Smooth readable slate-300 */
+    }
+
+    .dark .text-slate-500,
+    .dark .text-slate-400 {
+      color: #94a3b8 !important; /* Readable slate-400 */
+    }
+
+    /* FIX DARK COLORED TEXTS (700/800/900/950) -> HIGH CONTRAST NEON */
+    .dark [class*="text-emerald-700"],
+    .dark [class*="text-emerald-800"],
+    .dark [class*="text-emerald-900"],
+    .dark [class*="text-emerald-950"] {
+      color: #34d399 !important; /* Bright emerald-400 */
+    }
+
+    .dark [class*="text-blue-700"],
+    .dark [class*="text-blue-800"],
+    .dark [class*="text-blue-900"],
+    .dark [class*="text-blue-950"] {
+      color: #60a5fa !important; /* Bright blue-400 */
+    }
+
+    .dark [class*="text-purple-700"],
+    .dark [class*="text-purple-800"],
+    .dark [class*="text-purple-900"],
+    .dark [class*="text-purple-950"] {
+      color: #c084fc !important; /* Bright purple-400 */
+    }
+
+    .dark [class*="text-teal-700"],
+    .dark [class*="text-teal-800"],
+    .dark [class*="text-teal-900"],
+    .dark [class*="text-teal-950"] {
+      color: #2dd4bf !important; /* Bright teal-400 */
+    }
+
+    .dark [class*="text-amber-700"],
+    .dark [class*="text-amber-800"],
+    .dark [class*="text-amber-900"],
+    .dark [class*="text-amber-950"] {
+      color: #fbbf24 !important; /* Bright amber-400 */
+    }
+
+    .dark [class*="text-indigo-700"],
+    .dark [class*="text-indigo-800"],
+    .dark [class*="text-indigo-900"],
+    .dark [class*="text-indigo-950"] {
+      color: #818cf8 !important; /* Bright indigo-400 */
+    }
+
+    .dark [class*="text-cyan-700"],
+    .dark [class*="text-cyan-800"],
+    .dark [class*="text-cyan-900"],
+    .dark [class*="text-cyan-950"] {
+      color: #22d3ee !important; /* Bright cyan-400 */
+    }
+
+    .dark [class*="text-rose-700"],
+    .dark [class*="text-rose-800"],
+    .dark [class*="text-rose-900"],
+    .dark [class*="text-rose-950"] {
+      color: #fb7185 !important; /* Bright rose-400 */
+    }
+
+    /* --------------------------------------------------------
+       2. SECTIONS & SECTION HEADERS
+       -------------------------------------------------------- */
     .dark section#about {
       background: linear-gradient(180deg, #0d1527 0%, #070b14 60%, #080d1a 100%) !important;
       border-color: #1e293b !important;
-    }
-    .dark section#about h1 {
-      color: #ffffff !important;
-    }
-    .dark section#about p {
-      color: #94a3b8 !important;
     }
     .dark section#roles {
       background-color: #090e1c !important;
       border-color: #1e293b !important;
     }
-    .dark section#roles h2 {
-      color: #ffffff !important;
-    }
     .dark section#projects {
       background-color: #070b14 !important;
       border-color: #1e293b !important;
-    }
-    .dark section#projects h2 {
-      color: #ffffff !important;
     }
     .dark section#certificates {
       background-color: #090e1c !important;
       border-color: #1e293b !important;
     }
-    .dark section#certificates h2 {
-      color: #ffffff !important;
-    }
 
-    /* CARDS & GLASSMORPHISM */
-    .dark .card-glass,
-    .dark .project-card {
-      background-color: rgba(15, 23, 42, 0.88) !important;
-      border-color: #1e293b !important;
-      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.6) !important;
+    /* --------------------------------------------------------
+       3. HERO SECTION ELEMENTS
+       -------------------------------------------------------- */
+    /* Status Pill at top */
+    .dark section#about .bg-white\/95 {
+      background-color: rgba(15, 23, 42, 0.95) !important;
+      border-color: rgba(16, 185, 129, 0.5) !important;
+      color: #34d399 !important;
     }
-    .dark .project-card:hover {
-      border-color: rgba(45, 212, 191, 0.5) !important;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 25px rgba(20, 184, 166, 0.25) !important;
+    /* Secondary Hero Button (Coba Simulasi Dashboard) */
+    .dark section#about a[href="#interactive-demo"] {
+      background-color: #0f172a !important;
+      color: #f8fafc !important;
+      border-color: #334155 !important;
     }
-    .dark .project-card h3 {
-      color: #ffffff !important;
+    .dark section#about a[href="#interactive-demo"]:hover {
+      background-color: #1e293b !important;
+      border-color: #2dd4bf !important;
     }
-    .dark .project-card p {
-      color: #94a3b8 !important;
-    }
-    .dark .project-card .border-t {
-      border-color: #1e293b !important;
-    }
-
-    /* MINI SPREADSHEET MOCKUPS IN DARK MODE */
-    .dark .mock-grid {
-      background-color: #050811 !important;
-      background-image: linear-gradient(to right, rgba(51, 65, 85, 0.35) 1px, transparent 1px),
-                        linear-gradient(to bottom, rgba(51, 65, 85, 0.35) 1px, transparent 1px) !important;
-      color: #cbd5e1 !important;
-    }
-    .dark .project-card .bg-white {
-      background-color: #090e1c !important;
-      color: #cbd5e1 !important;
-    }
-    .dark .project-card [class*="bg-emerald-50"],
-    .dark .project-card [class*="bg-blue-50"],
-    .dark .project-card [class*="bg-purple-50"],
-    .dark .project-card [class*="bg-teal-50"],
-    .dark .project-card [class*="bg-amber-50"],
-    .dark .project-card [class*="bg-indigo-50"],
-    .dark .project-card [class*="bg-rose-50"],
-    .dark .project-card [class*="bg-cyan-50"] {
+    /* Quick Badges in Hero */
+    .dark section#about .bg-white\/80 {
       background-color: rgba(15, 23, 42, 0.9) !important;
       border-color: #334155 !important;
-      color: #cbd5e1 !important;
-    }
-    .dark .project-card [class*="bg-emerald-100"],
-    .dark .project-card [class*="bg-blue-100"],
-    .dark .project-card [class*="bg-purple-100"],
-    .dark .project-card [class*="bg-teal-100"],
-    .dark .project-card [class*="bg-amber-100"],
-    .dark .project-card [class*="bg-indigo-100"],
-    .dark .project-card [class*="bg-rose-100"],
-    .dark .project-card [class*="bg-cyan-100"] {
-      background-color: #1e293b !important;
-      border-color: #334155 !important;
-      color: #e2e8f0 !important;
-    }
-    .dark .project-card span.text-emerald-900,
-    .dark .project-card span.text-blue-900,
-    .dark .project-card span.text-purple-900,
-    .dark .project-card span.text-teal-900,
-    .dark .project-card span.text-amber-900,
-    .dark .project-card span.text-indigo-900 {
-      color: #e2e8f0 !important;
-    }
-    .dark .project-card span.text-slate-600,
-    .dark .project-card span.text-slate-700,
-    .dark .project-card span.text-slate-800 {
-      color: #cbd5e1 !important;
-    }
-    .dark .project-card .bg-slate-100 {
-      background-color: #1e293b !important;
-      color: #94a3b8 !important;
-    }
-
-    /* HERO STATS & ROLES IN DARK MODE */
-    .dark section#about .spotlight-card,
-    .dark section#roles .spotlight-card,
-    .dark section#certificates .spotlight-card {
-      background-color: rgba(15, 23, 42, 0.85) !important;
-      border-color: #1e293b !important;
       color: #f1f5f9 !important;
     }
-    .dark section#about .spotlight-card:hover,
-    .dark section#roles .spotlight-card:hover,
-    .dark section#certificates .spotlight-card:hover {
-      border-color: rgba(45, 212, 191, 0.5) !important;
-      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.7) !important;
+    /* Floating formula chips */
+    .dark .animate-chip-1 > div,
+    .dark .animate-chip-2 > div {
+      background-color: rgba(15, 23, 42, 0.95) !important;
+      border-color: #334155 !important;
+      color: #f8fafc !important;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.6) !important;
     }
-    .dark section#roles h3,
-    .dark section#certificates h4 {
+    .dark .animate-chip-1 span,
+    .dark .animate-chip-2 span {
+      color: #f8fafc !important;
+    }
+    /* Floating badges on photo (Deloitte Verified & Advanced Excel) */
+    .dark #profile-tilt-card .bg-white\/95 {
+      background-color: rgba(15, 23, 42, 0.95) !important;
+      border-color: #334155 !important;
       color: #ffffff !important;
     }
-    .dark section#roles p,
-    .dark section#certificates p {
-      color: #94a3b8 !important;
+    .dark #profile-tilt-card .text-slate-800 {
+      color: #ffffff !important;
     }
-
-    /* PROFILE PHOTO CARD INNER IN DARK MODE */
+    /* Profile Photo Inner Card */
     .dark .neon-border-wrapper .bg-white {
       background-color: #0b1120 !important;
       color: #ffffff !important;
-    }
-    .dark .neon-border-wrapper h3 {
-      color: #ffffff !important;
-    }
-    .dark .neon-border-wrapper p {
-      color: #94a3b8 !important;
     }
     .dark .neon-border-wrapper .bg-slate-100 {
       background-color: #070b14 !important;
@@ -522,64 +535,274 @@
     .dark .neon-border-wrapper a.btn-ripple {
       background-color: #1e293b !important;
       border-color: #334155 !important;
+      color: #cbd5e1 !important;
     }
     .dark .neon-border-wrapper a.btn-ripple:hover {
       background-color: #0d9488 !important;
       border-color: #0d9488 !important;
       color: #ffffff !important;
     }
-    .dark #profile-tilt-card .bg-white\/95 {
-      background-color: rgba(15, 23, 42, 0.95) !important;
+    /* 4 Stat Metric Counters in Hero */
+    .dark section#about .spotlight-card {
+      background-color: #0f172a !important;
       border-color: #1e293b !important;
-      color: #ffffff !important;
     }
-    .dark #profile-tilt-card .text-slate-800 {
+    .dark section#about .spotlight-card:hover {
+      border-color: rgba(45, 212, 191, 0.5) !important;
+      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.7) !important;
+    }
+    .dark section#about .spotlight-card .counter {
       color: #ffffff !important;
     }
 
-    /* DETAILS TRANSPARENCY CARD IN DARK MODE */
+    /* --------------------------------------------------------
+       4. ROLES SECTION (4 CAREER TRACKS)
+       -------------------------------------------------------- */
+    .dark section#roles .spotlight-card {
+      background-color: #0f172a !important;
+      border-color: #1e293b !important;
+    }
+    .dark section#roles .spotlight-card:hover {
+      border-color: rgba(45, 212, 191, 0.5) !important;
+      background-color: #131c31 !important;
+    }
+    .dark section#roles [class*="bg-teal-100"] {
+      background-color: rgba(19, 78, 74, 0.6) !important;
+      color: #5eead4 !important;
+    }
+    .dark section#roles [class*="bg-indigo-100"] {
+      background-color: rgba(49, 46, 129, 0.6) !important;
+      color: #a5b4fc !important;
+    }
+    .dark section#roles [class*="bg-emerald-100"] {
+      background-color: rgba(6, 78, 59, 0.6) !important;
+      color: #6ee7b7 !important;
+    }
+    .dark section#roles [class*="bg-amber-100"] {
+      background-color: rgba(120, 53, 15, 0.6) !important;
+      color: #fcd34d !important;
+    }
+    .dark section#roles .border-t {
+      border-color: #1e293b !important;
+    }
+
+    /* --------------------------------------------------------
+       5. 14 PROJECT CARDS & MINI SPREADSHEET MOCKUPS
+       -------------------------------------------------------- */
+    .dark .card-glass,
+    .dark .project-card {
+      background-color: rgba(15, 23, 42, 0.92) !important;
+      border-color: #1e293b !important;
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.7) !important;
+    }
+    .dark .project-card:hover {
+      border-color: rgba(45, 212, 191, 0.5) !important;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.85), 0 0 25px rgba(20, 184, 166, 0.25) !important;
+    }
+    .dark .project-card .border-t {
+      border-color: #1e293b !important;
+    }
+    /* Monospace Filename at Card Bottom */
+    .dark .project-card .font-mono {
+      color: #94a3b8 !important;
+    }
+
+    /* Mini Mockup Window Outer Container */
+    .dark .project-card .rounded-xl.overflow-hidden {
+      background-color: #0b1120 !important;
+      border-color: #334155 !important;
+    }
+    /* Mockup Titlebar Header */
+    .dark .project-card .px-2\.5.py-1\.5 {
+      background-color: #0f172a !important;
+      border-color: #334155 !important;
+      color: #f1f5f9 !important;
+    }
+    .dark .project-card .px-2\.5.py-1\.5 span {
+      color: #f1f5f9 !important;
+    }
+    /* Mockup Grid Table Body */
+    .dark .project-card .mock-grid {
+      background-color: #030712 !important;
+      border-color: #1e293b !important;
+      background-image: linear-gradient(to right, rgba(51, 65, 85, 0.35) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(51, 65, 85, 0.35) 1px, transparent 1px) !important;
+      color: #cbd5e1 !important;
+    }
+    /* Mockup Column Headers Row */
+    .dark .project-card .mock-grid .rounded {
+      background-color: #0f172a !important;
+      color: #38bdf8 !important;
+      border: 1px solid #1e293b !important;
+    }
+    .dark .project-card .mock-grid .rounded span {
+      color: #38bdf8 !important;
+      font-weight: 700 !important;
+    }
+    /* Mockup Data Rows */
+    .dark .project-card .mock-grid div.border-b {
+      border-color: #1e293b !important;
+      color: #cbd5e1 !important;
+    }
+    .dark .project-card .mock-grid span {
+      color: #cbd5e1 !important;
+    }
+    .dark .project-card .mock-grid .truncate {
+      color: #ffffff !important;
+      font-weight: 500 !important;
+    }
+    .dark .project-card .mock-grid .text-emerald-600 {
+      color: #34d399 !important;
+      font-weight: 700 !important;
+    }
+
+    /* --------------------------------------------------------
+       6. CALLOUT BOXES (TANTANGAN, METODOLOGI, HASIL)
+       -------------------------------------------------------- */
+    .dark [class*="bg-emerald-50"] {
+      background-color: rgba(6, 78, 59, 0.35) !important;
+      border-color: rgba(16, 185, 129, 0.45) !important;
+      color: #a7f3d0 !important;
+    }
+    .dark [class*="bg-blue-50"] {
+      background-color: rgba(30, 58, 138, 0.35) !important;
+      border-color: rgba(59, 130, 246, 0.45) !important;
+      color: #bfdbfe !important;
+    }
+    .dark [class*="bg-purple-50"] {
+      background-color: rgba(88, 28, 135, 0.35) !important;
+      border-color: rgba(168, 85, 247, 0.45) !important;
+      color: #e9d5ff !important;
+    }
+    .dark [class*="bg-teal-50"] {
+      background-color: rgba(19, 78, 74, 0.35) !important;
+      border-color: rgba(20, 184, 166, 0.45) !important;
+      color: #99f6e4 !important;
+    }
+    .dark [class*="bg-amber-50"] {
+      background-color: rgba(120, 53, 15, 0.35) !important;
+      border-color: rgba(245, 158, 11, 0.45) !important;
+      color: #fde68a !important;
+    }
+    .dark [class*="bg-cyan-50"] {
+      background-color: rgba(22, 78, 99, 0.35) !important;
+      border-color: rgba(6, 182, 212, 0.45) !important;
+      color: #a5f3fc !important;
+    }
+    .dark [class*="bg-indigo-50"] {
+      background-color: rgba(49, 46, 129, 0.35) !important;
+      border-color: rgba(99, 102, 241, 0.45) !important;
+      color: #c7d2fe !important;
+    }
+    .dark [class*="bg-rose-50"] {
+      background-color: rgba(136, 19, 55, 0.35) !important;
+      border-color: rgba(244, 63, 94, 0.45) !important;
+      color: #fecdd3 !important;
+    }
+
+    /* --------------------------------------------------------
+       7. BADGES & CATEGORY PILLS
+       -------------------------------------------------------- */
+    .dark [class*="bg-emerald-100"] {
+      background-color: rgba(6, 78, 59, 0.55) !important;
+      border-color: rgba(16, 185, 129, 0.5) !important;
+      color: #6ee7b7 !important;
+    }
+    .dark [class*="bg-blue-100"] {
+      background-color: rgba(30, 58, 138, 0.55) !important;
+      border-color: rgba(59, 130, 246, 0.5) !important;
+      color: #93c5fd !important;
+    }
+    .dark [class*="bg-purple-100"] {
+      background-color: rgba(88, 28, 135, 0.55) !important;
+      border-color: rgba(168, 85, 247, 0.5) !important;
+      color: #d8b4fe !important;
+    }
+    .dark [class*="bg-teal-100"] {
+      background-color: rgba(19, 78, 74, 0.55) !important;
+      border-color: rgba(20, 184, 166, 0.5) !important;
+      color: #5eead4 !important;
+    }
+    .dark [class*="bg-amber-100"] {
+      background-color: rgba(120, 53, 15, 0.55) !important;
+      border-color: rgba(245, 158, 11, 0.5) !important;
+      color: #fcd34d !important;
+    }
+    .dark [class*="bg-cyan-100"] {
+      background-color: rgba(22, 78, 99, 0.55) !important;
+      border-color: rgba(6, 182, 212, 0.5) !important;
+      color: #67e8f9 !important;
+    }
+    .dark [class*="bg-indigo-100"] {
+      background-color: rgba(49, 46, 129, 0.55) !important;
+      border-color: rgba(99, 102, 241, 0.5) !important;
+      color: #a5b4fc !important;
+    }
+
+    /* Tags at bottom of cards */
+    .dark .project-card .bg-slate-100 {
+      background-color: #1e293b !important;
+      color: #cbd5e1 !important;
+      border: 1px solid #334155 !important;
+    }
+
+    /* --------------------------------------------------------
+       8. DETAILS TRANSPARENCY CARD
+       -------------------------------------------------------- */
     .dark details {
       background-color: #0f172a !important;
       border-color: #1e293b !important;
     }
     .dark details summary {
-      color: #e2e8f0 !important;
+      color: #f1f5f9 !important;
     }
     .dark details summary:hover {
       background-color: #1e293b !important;
     }
-    .dark details div.bg-slate-50\/70 {
+    .dark details div.bg-slate-50\/70,
+    .dark details div.bg-slate-950\/60 {
       background-color: #0b1120 !important;
       border-color: #1e293b !important;
-      color: #94a3b8 !important;
+      color: #cbd5e1 !important;
     }
-    .dark details span.bg-white {
+    .dark details span.bg-white,
+    .dark details span.bg-slate-800 {
       background-color: #1e293b !important;
       border-color: #334155 !important;
       color: #2dd4bf !important;
     }
 
-    /* FILTER BUTTONS IN DARK MODE */
-    .dark #flt-dummy,
-    .dark #flt-case,
-    .dark #flt-real {
+    /* --------------------------------------------------------
+       9. CERTIFICATES & CERTIFICATE MODAL
+       -------------------------------------------------------- */
+    .dark section#certificates .spotlight-card {
       background-color: #0f172a !important;
-      border-color: #334155 !important;
+      border-color: #1e293b !important;
     }
-    .dark #flt-dummy:hover,
-    .dark #flt-case:hover,
-    .dark #flt-real:hover {
-      background-color: #1e293b !important;
+    .dark section#certificates .spotlight-card:hover {
+      border-color: rgba(45, 212, 191, 0.5) !important;
+    }
+    .dark section#certificates button {
+      color: #94a3b8 !important;
+    }
+    .dark section#certificates button:hover {
+      color: #2dd4bf !important;
+    }
+    .dark section#certificates .border-t {
+      border-color: #1e293b !important;
     }
 
-    /* MODAL IN DARK MODE */
+    /* Certificate Modal */
     .dark #cert-modal #modal-card {
       background-color: #0f172a !important;
       border-color: #334155 !important;
-      color: #f1f5f9 !important;
+      color: #f8fafc !important;
     }
     .dark #modal-title {
       color: #ffffff !important;
+    }
+    .dark #modal-org {
+      color: #2dd4bf !important;
     }
     .dark #modal-card .bg-slate-50 {
       background-color: #090e1c !important;
@@ -587,10 +810,13 @@
       color: #cbd5e1 !important;
     }
     .dark #modal-card strong {
-      color: #f1f5f9 !important;
+      color: #f8fafc !important;
     }
     .dark #modal-card span {
-      color: #94a3b8 !important;
+      color: #cbd5e1 !important;
+    }
+    .dark #modal-card button {
+      color: #ffffff !important;
     }
 
   </style>
