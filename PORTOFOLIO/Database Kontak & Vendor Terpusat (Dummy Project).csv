@@ -1,0 +1,14 @@
+﻿  CHECKLIST TUGAS HARIAN ADMIN,,,
+  Status selesai/belum otomatis diwarnai via Conditional Formatting,,,
+,,,
+,,,
+No,Tugas Rutin,Selesai (Ya/Tidak),Catatan
+1,Cek & balas email masuk,Ya,-
+2,Rekap laporan produksi harian,Ya,-
+3,Update data stok gudang,Ya,-
+4,Arsipkan surat keluar,Tidak,Menunggu tanda tangan atasan
+5,Koordinasi dengan supplier,Ya,-
+6,Rekap kehadiran karyawan,Tidak,Data belum lengkap dari HRD
+,,,
+Total Selesai:,4,,
+Total Belum Selesai:,2,,

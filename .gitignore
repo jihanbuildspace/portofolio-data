@@ -1,0 +1,23 @@
+# Python & temporary scripts
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+check_urls.py
+*.tmp
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+[Nn]onprofit
+Desktop.ini
+
+# IDE & Editor files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+.gemini/
