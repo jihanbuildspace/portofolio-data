@@ -194,6 +194,79 @@
       box-shadow: 0 20px 40px -15px rgba(13, 148, 136, 0.15), 0 0 0 1px rgba(20, 184, 166, 0.25);
     }
 
+
+    /* ========================================================
+       GACOR ANIMATIONS SUITE (HOLOGRAPHIC, SPARKLES, GLOW)
+       ======================================================== */
+    @keyframes holographicShine {
+      0% { transform: translateX(-160%) rotate(25deg); opacity: 0; }
+      20% { opacity: 0.7; }
+      60% { transform: translateX(260%) rotate(25deg); opacity: 0; }
+      100% { transform: translateX(260%) rotate(25deg); opacity: 0; }
+    }
+    .holo-sweep {
+      position: absolute;
+      inset: -50%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.45), rgba(45, 212, 191, 0.4), rgba(245, 158, 11, 0.35), transparent);
+      transform: translateX(-160%) rotate(25deg);
+      animation: holographicShine 4.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    @keyframes sparkleFloat {
+      0%, 100% { transform: scale(0.65) rotate(0deg); opacity: 0.35; filter: drop-shadow(0 0 3px rgba(245, 158, 11, 0.5)); }
+      50% { transform: scale(1.25) rotate(180deg); opacity: 1; filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.95)) drop-shadow(0 0 14px rgba(20, 184, 166, 0.6)); }
+    }
+    .animate-sparkle-1 { animation: sparkleFloat 3s ease-in-out infinite; }
+    .animate-sparkle-2 { animation: sparkleFloat 3.8s ease-in-out infinite 0.9s; }
+    .animate-sparkle-3 { animation: sparkleFloat 4.2s ease-in-out infinite 1.8s; }
+
+    @keyframes badgePulseGlow {
+      0%, 100% { box-shadow: 0 0 10px rgba(13, 148, 136, 0.35); }
+      50% { box-shadow: 0 0 24px rgba(20, 184, 166, 0.8), 0 0 12px rgba(245, 158, 11, 0.5); }
+    }
+    .badge-pulse { animation: badgePulseGlow 3.5s ease-in-out infinite; }
+
+    @keyframes softFloatMedal {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-4px); }
+    }
+    .animate-float-medal { animation: softFloatMedal 2.8s ease-in-out infinite; }
+
+    /* CARD HOVER GRADIENT BORDER TRACE */
+    .project-card::after {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: inherit;
+      padding: 1.5px;
+      background: linear-gradient(135deg, transparent 20%, rgba(45, 212, 191, 0.7), transparent 50%, rgba(168, 85, 247, 0.7), transparent 80%);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      pointer-events: none;
+      z-index: 3;
+    }
+    .project-card:hover::after {
+      opacity: 1;
+    }
+
+    /* BURST SPARKLE PARTICLE ON CLICK */
+    .burst-particle {
+      position: fixed;
+      pointer-events: none;
+      border-radius: 50%;
+      z-index: 9999;
+      animation: particleFly 0.65s cubic-bezier(0.12, 0.8, 0.32, 1) forwards;
+    }
+    @keyframes particleFly {
+      0% { transform: translate(0, 0) scale(1); opacity: 1; }
+      100% { transform: translate(var(--tx), var(--ty)) scale(0); opacity: 0; }
+    }
+
     /* MOUSE SPOTLIGHT GLOW ON CARDS */
     .spotlight-card {
       position: relative;
@@ -686,6 +759,11 @@
             
             <div class="tilt-glare"></div>
 
+            <!-- Twinkling Gold/Teal Sparkles for Extra Gacor Effect -->
+            <div class="absolute -top-3 left-4 z-30 pointer-events-none animate-sparkle-1 text-base select-none">✨</div>
+            <div class="absolute top-1/2 -right-5 z-30 pointer-events-none animate-sparkle-2 text-base select-none">⭐</div>
+            <div class="absolute -bottom-3 right-6 z-30 pointer-events-none animate-sparkle-3 text-base select-none">✨</div>
+
             <!-- Floating Badge Kiri Bawah (Deloitte Verified) -->
             <div class="absolute -bottom-4 -left-4 z-20 animate-float-1 bg-white/95 backdrop-blur-md px-4 py-2.5 rounded-2xl border border-slate-200 shadow-xl flex items-center gap-3 hover:scale-105 transition-transform cursor-default">
               <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-500 text-white flex items-center justify-center font-bold text-xs shrink-0 shadow-md">
@@ -712,12 +790,21 @@
             <div class="neon-border-wrapper">
               <div class="relative z-10 bg-white rounded-[25px] p-5 text-center flex flex-col items-center">
                 
-                <!-- Photo Wrapper with Radar Ring & Hover Zoom (Permanently Locked) -->
-                <div class="relative w-48 h-48 sm:w-56 sm:h-56 rounded-2xl overflow-hidden bg-slate-100 border-2 border-slate-200/90 shadow-inner group mb-3.5">
+                <!-- Photo Wrapper with Gold Medal Framing, Holographic Sweep, and Sparkles (Gacor Mode) -->
+                <div class="relative w-52 h-64 sm:w-60 sm:h-72 rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-900 border-2 border-amber-300/60 dark:border-amber-400/50 shadow-xl group mb-3.5 badge-pulse">
                   
-                  <!-- Actual Image (Locked to official foto-jihan.jpg) -->
-                  <img id="profile-img" src="foto-jihan.jpg" alt="Jihan Kusumawardhani" class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105" onerror="handlePhotoFallback(this)">
+                  <!-- Holographic Sweep Beam -->
+                  <div class="holo-sweep"></div>
+
+                  <!-- Actual Image (Framed to show Face & Medal Ribbon gorgeously) -->
+                  <img id="profile-img" src="foto-jihan.jpg" alt="Jihan Kusumawardhani" class="w-full h-full object-cover object-[center_12%] transition-transform duration-700 group-hover:scale-108" onerror="handlePhotoFallback(this)">
                   
+                  <!-- Floating Prestigious Award Ribbon Badge at bottom of photo -->
+                  <div class="absolute bottom-2.5 left-2.5 right-2.5 bg-slate-950/85 backdrop-blur-md py-1.5 px-3 rounded-xl border border-amber-400/60 shadow-lg flex items-center justify-center gap-2 z-20 animate-float-medal">
+                    <span class="text-amber-400 text-xs">🥇</span>
+                    <span class="text-[10px] font-bold text-amber-300 tracking-wide uppercase">Awardee & Talenta Berprestasi</span>
+                  </div>
+
                   <!-- Fallback Avatar jika foto terhapus dari folder -->
                   <div id="profile-avatar-fallback" class="hidden w-full h-full bg-gradient-to-tr from-slate-900 via-teal-950 to-indigo-950 flex flex-col items-center justify-center text-white p-4">
                     <div class="w-16 h-16 rounded-2xl bg-white/10 backdrop-blur-md flex items-center justify-center text-2xl font-bold mb-2 border border-white/20 shadow-lg">
@@ -2768,6 +2855,55 @@
       alert("Untuk menghubungkan ke WhatsApp pribadi Anda, Anda cukup mengedit baris tautan WhatsApp di file index.html dengan format:\nhttps://wa.me/628xxxxxxxxxx");
     }
 
+    // 18. GACOR INTERACTION: MAGNETIC BUTTONS & CLICK SPARKLE BURST
+    function initMagneticButtons() {
+      if (window.innerWidth <= 768) return; // Only on desktop mouse
+      const elements = document.querySelectorAll('.btn-shimmer, #theme-toggle-btn, #floating-theme-toggle');
+      elements.forEach(btn => {
+        btn.addEventListener('mousemove', e => {
+          const rect = btn.getBoundingClientRect();
+          const x = e.clientX - rect.left - rect.width / 2;
+          const y = e.clientY - rect.top - rect.height / 2;
+          btn.style.transform = `translate3d(${x * 0.18}px, ${y * 0.18}px, 0) scale(1.04)`;
+        });
+        btn.addEventListener('mouseleave', () => {
+          btn.style.transform = '';
+        });
+      });
+    }
+
+    function initClickBurst() {
+      document.addEventListener('click', e => {
+        const target = e.target.closest('button, a.btn-shimmer, .project-card a');
+        if (!target) return;
+        
+        // Spawn 6 miniature glowing sparkle particles
+        const colors = ['#14b8a6', '#f59e0b', '#6366f1', '#ec4899', '#10b981', '#38bdf8'];
+        for (let i = 0; i < 6; i++) {
+          const particle = document.createElement('div');
+          particle.className = 'burst-particle';
+          const size = Math.floor(Math.random() * 6 + 4);
+          particle.style.width = size + 'px';
+          particle.style.height = size + 'px';
+          particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+          particle.style.boxShadow = `0 0 8px ${particle.style.backgroundColor}`;
+          particle.style.left = e.clientX + 'px';
+          particle.style.top = e.clientY + 'px';
+
+          const angle = (Math.PI * 2 * i) / 6 + (Math.random() - 0.5) * 0.5;
+          const distance = Math.random() * 45 + 30;
+          const tx = Math.cos(angle) * distance;
+          const ty = Math.sin(angle) * distance;
+
+          particle.style.setProperty('--tx', `${tx}px`);
+          particle.style.setProperty('--ty', `${ty}px`);
+
+          document.body.appendChild(particle);
+          setTimeout(() => particle.remove(), 700);
+        }
+      });
+    }
+
     // INITIALIZE ALL VISUALS & ENGINES ON DOM READY
     window.addEventListener('DOMContentLoaded', () => {
       // Sync theme label with active mode
@@ -2780,6 +2916,8 @@
       initTilt3D();
       initScrollReveal();
       initRippleEffect();
+      initMagneticButtons();
+      initClickBurst();
 
       // Profile photo is permanently locked to official file
       try { localStorage.removeItem('jihan_profile_photo'); } catch (e) {}
