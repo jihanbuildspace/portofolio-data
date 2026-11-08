@@ -1,10 +1,35 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portofolio Profesional - Jihan Kusumawardhani</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            darkBg: '#070b14',
+            darkCard: '#0f172a',
+            darkBorder: '#1e293b'
+          }
+        }
+      }
+    };
+    // Immediate Theme Apply to prevent flash of wrong theme
+    (function() {
+      try {
+        const saved = localStorage.getItem('jihan_theme');
+        if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      } catch(e) {}
+    })();
+  </script>
   <style>
     html { scroll-behavior: smooth; }
     
@@ -154,6 +179,21 @@
       animation: shimmerSweep 3s infinite;
     }
 
+    /* SPREADSHEET MINI MOCKUP ACCENTS */
+    .mock-grid {
+      background-size: 16px 16px;
+      background-image: linear-gradient(to right, rgba(226, 232, 240, 0.5) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(226, 232, 240, 0.5) 1px, transparent 1px);
+    }
+    .card-glass {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .card-glass:hover {
+      box-shadow: 0 20px 40px -15px rgba(13, 148, 136, 0.15), 0 0 0 1px rgba(20, 184, 166, 0.25);
+    }
+
     /* MOUSE SPOTLIGHT GLOW ON CARDS */
     .spotlight-card {
       position: relative;
@@ -232,15 +272,275 @@
       header, footer, #interactive-demo, .no-print, .toast-notification, #scroll-progress, #mouse-aura, #hero-canvas { display: none !important; }
       body { background: white !important; color: black !important; }
     }
+  
+    /* ========================================================
+       EXECUTIVE DARK MODE SYSTEM (APPLE/VERCEL HIGHLIGHTS)
+       ======================================================== */
+    .dark {
+      color-scheme: dark;
+    }
+    .dark body {
+      background-color: #070b14 !important;
+      color: #f1f5f9 !important;
+    }
+    .dark header {
+      background-color: rgba(7, 11, 20, 0.88) !important;
+      border-color: rgba(30, 41, 59, 0.8) !important;
+    }
+    .dark header h1 {
+      color: #ffffff !important;
+    }
+    .dark header nav a {
+      color: #94a3b8 !important;
+    }
+    .dark header nav a:hover {
+      color: #2dd4bf !important;
+    }
+
+    .dark .bg-grid-pattern {
+      background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1.2px, transparent 1.2px) !important;
+    }
+
+    /* SECTIONS */
+    .dark section#about {
+      background: linear-gradient(180deg, #0d1527 0%, #070b14 60%, #080d1a 100%) !important;
+      border-color: #1e293b !important;
+    }
+    .dark section#about h1 {
+      color: #ffffff !important;
+    }
+    .dark section#about p {
+      color: #94a3b8 !important;
+    }
+    .dark section#roles {
+      background-color: #090e1c !important;
+      border-color: #1e293b !important;
+    }
+    .dark section#roles h2 {
+      color: #ffffff !important;
+    }
+    .dark section#projects {
+      background-color: #070b14 !important;
+      border-color: #1e293b !important;
+    }
+    .dark section#projects h2 {
+      color: #ffffff !important;
+    }
+    .dark section#certificates {
+      background-color: #090e1c !important;
+      border-color: #1e293b !important;
+    }
+    .dark section#certificates h2 {
+      color: #ffffff !important;
+    }
+
+    /* CARDS & GLASSMORPHISM */
+    .dark .card-glass,
+    .dark .project-card {
+      background-color: rgba(15, 23, 42, 0.88) !important;
+      border-color: #1e293b !important;
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.6) !important;
+    }
+    .dark .project-card:hover {
+      border-color: rgba(45, 212, 191, 0.5) !important;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 25px rgba(20, 184, 166, 0.25) !important;
+    }
+    .dark .project-card h3 {
+      color: #ffffff !important;
+    }
+    .dark .project-card p {
+      color: #94a3b8 !important;
+    }
+    .dark .project-card .border-t {
+      border-color: #1e293b !important;
+    }
+
+    /* MINI SPREADSHEET MOCKUPS IN DARK MODE */
+    .dark .mock-grid {
+      background-color: #050811 !important;
+      background-image: linear-gradient(to right, rgba(51, 65, 85, 0.35) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(51, 65, 85, 0.35) 1px, transparent 1px) !important;
+      color: #cbd5e1 !important;
+    }
+    .dark .project-card .bg-white {
+      background-color: #090e1c !important;
+      color: #cbd5e1 !important;
+    }
+    .dark .project-card [class*="bg-emerald-50"],
+    .dark .project-card [class*="bg-blue-50"],
+    .dark .project-card [class*="bg-purple-50"],
+    .dark .project-card [class*="bg-teal-50"],
+    .dark .project-card [class*="bg-amber-50"],
+    .dark .project-card [class*="bg-indigo-50"],
+    .dark .project-card [class*="bg-rose-50"],
+    .dark .project-card [class*="bg-cyan-50"] {
+      background-color: rgba(15, 23, 42, 0.9) !important;
+      border-color: #334155 !important;
+      color: #cbd5e1 !important;
+    }
+    .dark .project-card [class*="bg-emerald-100"],
+    .dark .project-card [class*="bg-blue-100"],
+    .dark .project-card [class*="bg-purple-100"],
+    .dark .project-card [class*="bg-teal-100"],
+    .dark .project-card [class*="bg-amber-100"],
+    .dark .project-card [class*="bg-indigo-100"],
+    .dark .project-card [class*="bg-rose-100"],
+    .dark .project-card [class*="bg-cyan-100"] {
+      background-color: #1e293b !important;
+      border-color: #334155 !important;
+      color: #e2e8f0 !important;
+    }
+    .dark .project-card span.text-emerald-900,
+    .dark .project-card span.text-blue-900,
+    .dark .project-card span.text-purple-900,
+    .dark .project-card span.text-teal-900,
+    .dark .project-card span.text-amber-900,
+    .dark .project-card span.text-indigo-900 {
+      color: #e2e8f0 !important;
+    }
+    .dark .project-card span.text-slate-600,
+    .dark .project-card span.text-slate-700,
+    .dark .project-card span.text-slate-800 {
+      color: #cbd5e1 !important;
+    }
+    .dark .project-card .bg-slate-100 {
+      background-color: #1e293b !important;
+      color: #94a3b8 !important;
+    }
+
+    /* HERO STATS & ROLES IN DARK MODE */
+    .dark section#about .spotlight-card,
+    .dark section#roles .spotlight-card,
+    .dark section#certificates .spotlight-card {
+      background-color: rgba(15, 23, 42, 0.85) !important;
+      border-color: #1e293b !important;
+      color: #f1f5f9 !important;
+    }
+    .dark section#about .spotlight-card:hover,
+    .dark section#roles .spotlight-card:hover,
+    .dark section#certificates .spotlight-card:hover {
+      border-color: rgba(45, 212, 191, 0.5) !important;
+      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.7) !important;
+    }
+    .dark section#roles h3,
+    .dark section#certificates h4 {
+      color: #ffffff !important;
+    }
+    .dark section#roles p,
+    .dark section#certificates p {
+      color: #94a3b8 !important;
+    }
+
+    /* PROFILE PHOTO CARD INNER IN DARK MODE */
+    .dark .neon-border-wrapper .bg-white {
+      background-color: #0b1120 !important;
+      color: #ffffff !important;
+    }
+    .dark .neon-border-wrapper h3 {
+      color: #ffffff !important;
+    }
+    .dark .neon-border-wrapper p {
+      color: #94a3b8 !important;
+    }
+    .dark .neon-border-wrapper .bg-slate-100 {
+      background-color: #070b14 !important;
+      border-color: #1e293b !important;
+    }
+    .dark .neon-border-wrapper a.btn-ripple {
+      background-color: #1e293b !important;
+      border-color: #334155 !important;
+    }
+    .dark .neon-border-wrapper a.btn-ripple:hover {
+      background-color: #0d9488 !important;
+      border-color: #0d9488 !important;
+      color: #ffffff !important;
+    }
+    .dark #profile-tilt-card .bg-white\/95 {
+      background-color: rgba(15, 23, 42, 0.95) !important;
+      border-color: #1e293b !important;
+      color: #ffffff !important;
+    }
+    .dark #profile-tilt-card .text-slate-800 {
+      color: #ffffff !important;
+    }
+
+    /* DETAILS TRANSPARENCY CARD IN DARK MODE */
+    .dark details {
+      background-color: #0f172a !important;
+      border-color: #1e293b !important;
+    }
+    .dark details summary {
+      color: #e2e8f0 !important;
+    }
+    .dark details summary:hover {
+      background-color: #1e293b !important;
+    }
+    .dark details div.bg-slate-50\/70 {
+      background-color: #0b1120 !important;
+      border-color: #1e293b !important;
+      color: #94a3b8 !important;
+    }
+    .dark details span.bg-white {
+      background-color: #1e293b !important;
+      border-color: #334155 !important;
+      color: #2dd4bf !important;
+    }
+
+    /* FILTER BUTTONS IN DARK MODE */
+    .dark #flt-dummy,
+    .dark #flt-case,
+    .dark #flt-real {
+      background-color: #0f172a !important;
+      border-color: #334155 !important;
+    }
+    .dark #flt-dummy:hover,
+    .dark #flt-case:hover,
+    .dark #flt-real:hover {
+      background-color: #1e293b !important;
+    }
+
+    /* MODAL IN DARK MODE */
+    .dark #cert-modal #modal-card {
+      background-color: #0f172a !important;
+      border-color: #334155 !important;
+      color: #f1f5f9 !important;
+    }
+    .dark #modal-title {
+      color: #ffffff !important;
+    }
+    .dark #modal-card .bg-slate-50 {
+      background-color: #090e1c !important;
+      border-color: #1e293b !important;
+      color: #cbd5e1 !important;
+    }
+    .dark #modal-card strong {
+      color: #f1f5f9 !important;
+    }
+    .dark #modal-card span {
+      color: #94a3b8 !important;
+    }
+
   </style>
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased font-sans selection:bg-teal-500 selection:text-white relative overflow-x-hidden">
+
+  <!-- AMBIENT GLOW MESH ORBS (HIGH-TECH VERCEL/APPLE LIGHTING) -->
+  <div class="fixed top-0 left-1/4 w-[650px] h-[650px] bg-gradient-to-tr from-teal-400/12 via-emerald-400/8 to-transparent rounded-full blur-3xl pointer-events-none -z-10 transform -translate-y-1/2"></div>
+  <div class="fixed top-1/3 right-0 w-[600px] h-[600px] bg-gradient-to-bl from-indigo-500/10 via-purple-500/8 to-transparent rounded-full blur-3xl pointer-events-none -z-10"></div>
+  <div class="fixed bottom-10 left-10 w-[550px] h-[550px] bg-gradient-to-tr from-cyan-400/8 via-teal-500/8 to-transparent rounded-full blur-3xl pointer-events-none -z-10"></div>
 
   <!-- TOP NEON SCROLL PROGRESS BAR -->
   <div id="scroll-progress"></div>
 
   <!-- AMBIENT MOUSE CURSOR AURA GLOW -->
   <div id="mouse-aura" class="hidden md:block"></div>
+
+  <!-- FLOATING QUICK THEME SWITCHER PILL (BOTTOM LEFT) -->
+  <button id="floating-theme-toggle" onclick="toggleTheme()" class="fixed bottom-6 left-6 z-40 btn-ripple flex items-center gap-2 px-3.5 py-2.5 rounded-full bg-slate-900/95 dark:bg-slate-800/95 text-white dark:text-amber-300 border border-slate-700/80 dark:border-slate-600/80 shadow-2xl backdrop-blur-md text-xs font-semibold hover:scale-105 active:scale-95 transition-all group" title="Beralih Mode Gelap / Terang">
+    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+    <span id="floating-theme-label">Mode: Terang</span>
+    <span class="text-sm">🌓</span>
+  </button>
 
   <!-- FLOATING TOAST NOTIFICATION FOR USER ACTIONS -->
   <div id="toast-notify" class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none flex items-center gap-2.5 px-4 py-3 bg-slate-900 text-white rounded-2xl shadow-2xl border border-teal-500/30 text-xs font-semibold backdrop-blur-md">
@@ -272,7 +572,21 @@
         <a href="#certificates" class="hover:text-teal-600 transition-colors">Sertifikasi</a>
       </nav>
 
-      <div class="flex items-center gap-2">
+      <div class="flex items-center gap-2.5">
+        <!-- THEME TOGGLE BUTTON IN NAVBAR -->
+        <button id="theme-toggle-btn" onclick="toggleTheme()" class="btn-ripple relative inline-flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-xl border border-slate-300 dark:border-slate-700 bg-white/90 dark:bg-slate-800/90 text-slate-700 dark:text-amber-400 shadow-xs hover:scale-105 active:scale-95 transition-all" title="Beralih Mode Gelap / Terang">
+          <!-- Sun Icon (visible in dark mode) -->
+          <svg id="nav-sun" class="w-4 h-4 hidden dark:block transition-transform duration-300 rotate-0 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="4" stroke-width="2"></circle>
+            <path stroke-linecap="round" stroke-width="2" d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+          </svg>
+          <!-- Moon Icon (visible in light mode) -->
+          <svg id="nav-moon" class="w-4 h-4 block dark:hidden transition-transform duration-300 text-slate-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+          </svg>
+          <span class="sr-only">Toggle Dark Mode</span>
+        </button>
+
         <a href="#contact" class="btn-shimmer btn-ripple inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold text-white bg-slate-900 hover:bg-teal-600 rounded-xl shadow-md transition-all duration-300 hover:scale-105">
           <span>Hubungi Saya</span>
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
@@ -543,7 +857,7 @@
           </p>
         </div>
 
-        <div class="flex items-center gap-2 text-xs font-semibold text-slate-700 bg-white px-3.5 py-2 rounded-xl border border-slate-200 shadow-xs shrink-0">
+        <div class="flex items-center gap-2 text-xs font-semibold text-slate-700 dark:text-slate-200 bg-white dark:bg-slate-800/90 px-3.5 py-2 rounded-xl border border-slate-200 dark:border-slate-700 shadow-xs shrink-0">
           <span class="relative flex h-2 w-2">
             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
             <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
@@ -553,76 +867,100 @@
       </div>
 
       <!-- Compact Glassmorphism Transparency Pill (Anti-Clutter / Clean Expandable) -->
-      <details class="mb-6 rounded-2xl bg-white border border-slate-200/90 shadow-xs overflow-hidden transition-all group reveal-item">
-        <summary class="px-4 py-3 cursor-pointer flex flex-wrap items-center justify-between gap-2 text-xs text-slate-700 font-medium hover:bg-slate-50 select-none transition-colors">
+      <details class="mb-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 shadow-xs overflow-hidden transition-all group reveal-item">
+        <summary class="px-4 py-3 cursor-pointer flex flex-wrap items-center justify-between gap-2 text-xs text-slate-700 dark:text-slate-200 font-medium hover:bg-slate-50 dark:hover:bg-slate-800/60 select-none transition-colors">
           <div class="flex items-center gap-2.5">
-            <span class="w-6 h-6 rounded-lg bg-purple-100 text-purple-700 flex items-center justify-center text-xs font-bold shrink-0">💡</span>
+            <span class="w-6 h-6 rounded-lg bg-purple-100 dark:bg-purple-950 text-purple-700 dark:text-purple-300 flex items-center justify-center text-xs font-bold shrink-0">💡</span>
             <span><strong>Transparansi Data:</strong> Modul Enterprise disimulasikan (<em>dummy data</em>) demi privasi korporasi & demonstrasi arsitektur sistem.</span>
           </div>
-          <span class="inline-flex items-center gap-1 text-[11px] font-semibold text-teal-700 group-hover:text-teal-800">
+          <span class="inline-flex items-center gap-1 text-[11px] font-semibold text-teal-700 dark:text-teal-400 group-hover:text-teal-800">
             <span>Pelajari Keterangan</span>
             <svg class="w-3.5 h-3.5 transform group-open:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
           </span>
         </summary>
-        <div class="px-5 pb-4 pt-2 text-xs text-slate-600 border-t border-slate-100 bg-slate-50/70 leading-relaxed space-y-2">
+        <div class="px-5 pb-4 pt-2 text-xs text-slate-600 dark:text-slate-300 border-t border-slate-100 dark:border-slate-800 bg-slate-50/70 dark:bg-slate-950/60 leading-relaxed space-y-2">
           <p>
             Studi kasus <strong>CV Mitra Kemasan Nusantara</strong> dan <strong>Kantor Layanan Pelatihan</strong> menggunakan nominal dan nama entitas simulasi untuk melindungi kerahasiaan data riil korporasi, sekaligus membuktikan penguasaan rancang bangun sistem administrasi modern dari nol (<em>from scratch</em>).
           </p>
           <div class="flex flex-wrap items-center gap-1.5 pt-1">
             <span class="text-[10px] text-slate-400 font-semibold uppercase tracking-wider mr-1">Otomasi Formula:</span>
-            <span class="px-2 py-0.5 rounded-md bg-white border border-slate-200 text-teal-700 font-mono text-[10px] font-semibold shadow-2xs">VLOOKUP</span>
-            <span class="px-2 py-0.5 rounded-md bg-white border border-slate-200 text-teal-700 font-mono text-[10px] font-semibold shadow-2xs">INDEX/MATCH</span>
-            <span class="px-2 py-0.5 rounded-md bg-white border border-slate-200 text-teal-700 font-mono text-[10px] font-semibold shadow-2xs">SUMIF</span>
-            <span class="px-2 py-0.5 rounded-md bg-white border border-slate-200 text-teal-700 font-mono text-[10px] font-semibold shadow-2xs">COUNTIFS</span>
-            <span class="px-2 py-0.5 rounded-md bg-white border border-slate-200 text-teal-700 font-mono text-[10px] font-semibold shadow-2xs">TODAY()</span>
-            <span class="px-2 py-0.5 rounded-md bg-white border border-slate-200 text-purple-700 font-mono text-[10px] font-semibold shadow-2xs">Conditional Formatting</span>
+            <span class="px-2 py-0.5 rounded-md bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-teal-700 dark:text-teal-400 font-mono text-[10px] font-semibold shadow-2xs">VLOOKUP</span>
+            <span class="px-2 py-0.5 rounded-md bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-teal-700 dark:text-teal-400 font-mono text-[10px] font-semibold shadow-2xs">INDEX/MATCH</span>
+            <span class="px-2 py-0.5 rounded-md bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-teal-700 dark:text-teal-400 font-mono text-[10px] font-semibold shadow-2xs">SUMIF</span>
+            <span class="px-2 py-0.5 rounded-md bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-teal-700 dark:text-teal-400 font-mono text-[10px] font-semibold shadow-2xs">COUNTIFS</span>
+            <span class="px-2 py-0.5 rounded-md bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-teal-700 dark:text-teal-400 font-mono text-[10px] font-semibold shadow-2xs">TODAY()</span>
+            <span class="px-2 py-0.5 rounded-md bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-purple-700 dark:text-purple-400 font-mono text-[10px] font-semibold shadow-2xs">Conditional Formatting</span>
           </div>
         </div>
       </details>
 
       <!-- Filter Buttons with Spring Hover -->
       <div class="flex flex-wrap items-center gap-2 mb-8 text-xs font-semibold reveal-item">
-        <button onclick="filterProjectCategory('all')" id="flt-all" class="btn-ripple px-3.5 py-2 rounded-xl bg-slate-900 text-white shadow-md transition-all hover:scale-105 active:scale-95">
+        <button onclick="filterProjectCategory('all')" id="flt-all" class="btn-ripple px-3.5 py-2 rounded-xl bg-slate-900 dark:bg-teal-600 text-white shadow-md transition-all hover:scale-105 active:scale-95">
           Semua (14)
         </button>
-        <button onclick="filterProjectCategory('dummy')" id="flt-dummy" class="btn-ripple px-3.5 py-2 rounded-xl bg-white text-purple-700 hover:bg-purple-50 border border-purple-300 transition-all hover:scale-105 active:scale-95">
+        <button onclick="filterProjectCategory('dummy')" id="flt-dummy" class="btn-ripple px-3.5 py-2 rounded-xl bg-white dark:bg-slate-800/90 text-purple-700 dark:text-purple-300 hover:bg-purple-50 dark:hover:bg-slate-700 border border-purple-300 dark:border-purple-800/80 transition-all hover:scale-105 active:scale-95">
           🏢 Simulasi Admin & Operasi Dummy (9)
         </button>
-        <button onclick="filterProjectCategory('case')" id="flt-case" class="btn-ripple px-3.5 py-2 rounded-xl bg-white text-blue-700 hover:bg-blue-50 border border-blue-300 transition-all hover:scale-105 active:scale-95">
+        <button onclick="filterProjectCategory('case')" id="flt-case" class="btn-ripple px-3.5 py-2 rounded-xl bg-white dark:bg-slate-800/90 text-blue-700 dark:text-blue-300 hover:bg-blue-50 dark:hover:bg-slate-700 border border-blue-300 dark:border-blue-800/80 transition-all hover:scale-105 active:scale-95">
           📚 Study Case Industri & Viz (4)
         </button>
-        <button onclick="filterProjectCategory('real')" id="flt-real" class="btn-ripple px-3.5 py-2 rounded-xl bg-white text-emerald-700 hover:bg-emerald-50 border border-emerald-300 transition-all hover:scale-105 active:scale-95">
+        <button onclick="filterProjectCategory('real')" id="flt-real" class="btn-ripple px-3.5 py-2 rounded-xl bg-white dark:bg-slate-800/90 text-emerald-700 dark:text-emerald-300 hover:bg-emerald-50 dark:hover:bg-slate-700 border border-emerald-300 dark:border-emerald-800/80 transition-all hover:scale-105 active:scale-95">
           ⭐ Data Riil Lapangan (1)
         </button>
       </div>
 
-      <!-- Project Cards Grid (14 Cards) -->
+      <!-- Project Cards Grid (14 Visually Enhanced Cards with Mini Mockups) -->
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
         <!-- KARTU 1: REAL PROJECT (UMKM JATENG) -->
-        <div class="project-card real-card spotlight-card reveal-item bg-white rounded-2xl p-6 border-2 border-emerald-400 flex flex-col justify-between relative overflow-hidden shadow-sm hover:shadow-md transition-all">
-          <div class="absolute top-0 right-0 bg-emerald-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl uppercase tracking-wider shadow-sm">
+        <div class="project-card real-card spotlight-card card-glass reveal-item rounded-2xl p-5 border-2 border-emerald-400/90 flex flex-col justify-between relative overflow-hidden shadow-sm hover:shadow-xl transition-all group">
+          <div class="absolute top-0 right-0 bg-emerald-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl uppercase tracking-wider shadow-sm z-10">
             ⭐ Real Project
           </div>
           <div>
-            <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-200 mb-3">
+            <!-- Mini Spreadsheet Mockup Header -->
+            <div class="mb-3.5 rounded-xl overflow-hidden border border-emerald-200/90 bg-emerald-50/50 shadow-2xs group-hover:border-emerald-400 transition-all">
+              <div class="px-2.5 py-1.5 bg-emerald-100/70 border-b border-emerald-200/80 flex items-center justify-between text-[10px]">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-rose-400"></span>
+                  <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+                  <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                  <span class="font-mono text-emerald-900 font-semibold ml-1 text-[9px]">Rekap Data UMKM.xlsx</span>
+                </div>
+                <span class="px-1.5 py-0.2 rounded bg-emerald-600 text-white font-bold text-[8px]">1.000+ Baris</span>
+              </div>
+              <div class="p-2 space-y-1 bg-white font-mono text-[9px] mock-grid">
+                <div class="grid grid-cols-4 gap-1 px-1.5 py-0.5 bg-emerald-50 text-emerald-900 font-bold text-[8px] rounded">
+                  <span>ID</span><span>NAMA UMKM</span><span>KOTA</span><span>WA STATUS</span>
+                </div>
+                <div class="grid grid-cols-4 gap-1 px-1.5 py-0.5 text-slate-600 border-b border-slate-100 text-[8.5px]">
+                  <span>UK-01</span><span class="truncate font-sans font-medium text-slate-800">Sambal Bu Rudy</span><span>Semarang</span><span class="text-emerald-600 font-bold">✓ Valid</span>
+                </div>
+                <div class="grid grid-cols-4 gap-1 px-1.5 py-0.5 text-slate-600 text-[8.5px]">
+                  <span>UK-02</span><span class="truncate font-sans font-medium text-slate-800">Kripik Barokah</span><span>Wonogiri</span><span class="text-emerald-600 font-bold">✓ Valid</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-200 mb-2">
               <span>●</span> Data Riil Lapangan
             </div>
-            <h3 class="text-lg font-bold text-slate-900 leading-tight">Pemetaan & Kurasi Kontak Operasional UMKM Jawa Tengah</h3>
-            <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+            <h3 class="text-base font-bold text-slate-900 leading-tight group-hover:text-emerald-700 transition-colors">Pemetaan & Kurasi Kontak Operasional UMKM Jawa Tengah</h3>
+            <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">
               Pengumpulan, pembersihan (<em>data cleansing</em>), dan validasi 1.000+ data operasional pelaku UMKM di Jawa Tengah (Semarang, Wonogiri, Kendal, dll.).
             </p>
-            <div class="mt-3 p-3 rounded-xl bg-emerald-50/70 border border-emerald-200 text-[11px] text-emerald-900 space-y-1">
+            <div class="mt-3 p-2.5 rounded-xl bg-emerald-50/70 border border-emerald-200 text-[11px] text-emerald-900 space-y-1">
               <div><strong>Tantangan Riil:</strong> Menghandle data mentah, memfilter nomor telepon tidak valid, verifikasi WhatsApp bisnis & tautan Instagram aktif.</div>
               <div><strong>Hasil:</strong> Master basis data terverifikasi untuk kemitraan operasional wirausaha.</div>
             </div>
-            <div class="mt-4 flex flex-wrap gap-1.5">
+            <div class="mt-3 flex flex-wrap gap-1.5">
               <span class="text-[10px] px-2 py-0.5 bg-slate-100 text-slate-700 rounded font-medium">Big Data Cleaning</span>
               <span class="text-[10px] px-2 py-0.5 bg-slate-100 text-slate-700 rounded font-medium">Real Contact Validation</span>
               <span class="text-[10px] px-2 py-0.5 bg-slate-100 text-slate-700 rounded font-medium">Kewirausahaan</span>
             </div>
           </div>
-          <div class="pt-4 mt-5 border-t border-slate-100 flex items-center justify-between gap-2">
+          <div class="pt-3.5 mt-4 border-t border-slate-100 flex items-center justify-between gap-2">
             <span class="text-slate-500 font-mono text-[11px] truncate">Rekap Data UMKM.xlsx</span>
             <a href="https://docs.google.com/spreadsheets/d/1E0MxcLhe6FZZEtB6XlGQBE_fCv6Sg2_4/edit?usp=drive_link" target="_blank" class="btn-shimmer btn-ripple inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold bg-emerald-700 hover:bg-emerald-800 text-white transition-all shrink-0 shadow-md hover:scale-105 active:scale-95">
               <span>Buka Sheets ↗</span>
@@ -631,29 +969,53 @@
         </div>
 
         <!-- KARTU 2: STUDY CASE 1 (DELOITTE PIVOT TABLE) -->
-        <div class="project-card case-card spotlight-card reveal-item bg-white rounded-2xl p-6 border border-slate-200 hover:border-blue-400 flex flex-col justify-between relative overflow-hidden shadow-sm hover:shadow-md transition-all">
-          <div class="absolute top-0 right-0 bg-blue-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl uppercase tracking-wider shadow-sm">
+        <div class="project-card case-card spotlight-card card-glass reveal-item rounded-2xl p-5 border border-slate-200 hover:border-blue-400 flex flex-col justify-between relative overflow-hidden shadow-sm hover:shadow-xl transition-all group">
+          <div class="absolute top-0 right-0 bg-blue-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl uppercase tracking-wider shadow-sm z-10">
             📚 Study Case
           </div>
           <div>
-            <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold bg-blue-100 text-blue-800 border border-blue-200 mb-3">
+            <!-- Mini Spreadsheet Mockup Header -->
+            <div class="mb-3.5 rounded-xl overflow-hidden border border-blue-200/90 bg-blue-50/50 shadow-2xs group-hover:border-blue-400 transition-all">
+              <div class="px-2.5 py-1.5 bg-blue-100/70 border-b border-blue-200/80 flex items-center justify-between text-[10px]">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-rose-400"></span>
+                  <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+                  <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                  <span class="font-mono text-blue-900 font-semibold ml-1 text-[9px]">Pivot Table Deloitte.xlsx</span>
+                </div>
+                <span class="px-1.5 py-0.2 rounded bg-blue-600 text-white font-bold text-[8px]">Rp 16,51 M</span>
+              </div>
+              <div class="p-2 space-y-1 bg-white font-mono text-[9px] mock-grid">
+                <div class="grid grid-cols-4 gap-1 px-1.5 py-0.5 bg-blue-50 text-blue-900 font-bold text-[8px] rounded">
+                  <span>REGION</span><span>SALES</span><span>PROFIT</span><span>MARGIN</span>
+                </div>
+                <div class="grid grid-cols-4 gap-1 px-1.5 py-0.5 text-slate-600 border-b border-slate-100 text-[8.5px]">
+                  <span class="font-bold text-slate-800">Surabaya</span><span>Rp 11,1M</span><span>Rp 2,4M</span><span class="text-blue-700 font-bold">21,6%</span>
+                </div>
+                <div class="grid grid-cols-4 gap-1 px-1.5 py-0.5 text-slate-600 text-[8.5px]">
+                  <span class="font-bold text-slate-800">Jakarta</span><span>Rp 4,0M</span><span>Rp 920Jt</span><span class="text-blue-700 font-bold">23,0%</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-blue-100 text-blue-800 border border-blue-200 mb-2">
               <span>●</span> Deloitte x MySkill Bootcamp
             </div>
-            <h3 class="text-lg font-bold text-slate-900 leading-tight">Superstore Multi-Dimension Sales & Margin Analysis</h3>
-            <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+            <h3 class="text-base font-bold text-slate-900 leading-tight group-hover:text-blue-700 transition-colors">Superstore Multi-Dimension Sales & Margin Analysis</h3>
+            <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">
               Pengerjaan studi kasus industri berskala korporasi menggunakan dataset Superstore dengan nilai transaksi pemesanan mencapai Rp 16,51 Miliar.
             </p>
-            <div class="mt-3 p-3 rounded-xl bg-blue-50/70 border border-blue-200 text-[11px] text-blue-900 space-y-1">
+            <div class="mt-3 p-2.5 rounded-xl bg-blue-50/70 border border-blue-200 text-[11px] text-blue-900 space-y-1">
               <div><strong>Metodologi:</strong> Pivot Table multi-variabel, breakdown laba Surabaya (Rp 11,1M), Jakarta (Rp 4M), Bandung (Rp 1,2M).</div>
               <div><strong>Insight:</strong> Segmentasi konsumen & evaluasi kinerja Account Manager.</div>
             </div>
-            <div class="mt-4 flex flex-wrap gap-1.5">
+            <div class="mt-3 flex flex-wrap gap-1.5">
               <span class="text-[10px] px-2 py-0.5 bg-slate-100 text-slate-700 rounded font-medium">Pivot Table</span>
               <span class="text-[10px] px-2 py-0.5 bg-slate-100 text-slate-700 rounded font-medium">Financial Margin</span>
               <span class="text-[10px] px-2 py-0.5 bg-slate-100 text-slate-700 rounded font-medium">Corporate Case</span>
             </div>
           </div>
-          <div class="pt-4 mt-5 border-t border-slate-100 flex items-center justify-between gap-2">
+          <div class="pt-3.5 mt-4 border-t border-slate-100 flex items-center justify-between gap-2">
             <span class="text-slate-500 font-mono text-[11px] truncate">Pivot Table Deloitte.xlsx</span>
             <a href="https://docs.google.com/spreadsheets/d/1-zAyZA04nx88XSBxkf3SJ3LHEit5XkpH/edit?usp=drive_link" target="_blank" class="btn-shimmer btn-ripple inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold bg-blue-700 hover:bg-blue-800 text-white transition-all shrink-0 shadow-md hover:scale-105 active:scale-95">
               <span>Buka Sheets ↗</span>
@@ -662,29 +1024,53 @@
         </div>
 
         <!-- KARTU 3: STUDY CASE 2 (DATA VIZ PARETO) -->
-        <div class="project-card case-card spotlight-card reveal-item bg-white rounded-2xl p-6 border border-slate-200 hover:border-blue-400 flex flex-col justify-between relative overflow-hidden shadow-sm hover:shadow-md transition-all">
-          <div class="absolute top-0 right-0 bg-blue-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl uppercase tracking-wider shadow-sm">
+        <div class="project-card case-card spotlight-card card-glass reveal-item rounded-2xl p-5 border border-slate-200 hover:border-blue-400 flex flex-col justify-between relative overflow-hidden shadow-sm hover:shadow-xl transition-all group">
+          <div class="absolute top-0 right-0 bg-blue-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl uppercase tracking-wider shadow-sm z-10">
             📚 Study Case
           </div>
           <div>
-            <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold bg-blue-100 text-blue-800 border border-blue-200 mb-3">
+            <!-- Mini Spreadsheet Mockup Header -->
+            <div class="mb-3.5 rounded-xl overflow-hidden border border-blue-200/90 bg-blue-50/50 shadow-2xs group-hover:border-blue-400 transition-all">
+              <div class="px-2.5 py-1.5 bg-blue-100/70 border-b border-blue-200/80 flex items-center justify-between text-[10px]">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-rose-400"></span>
+                  <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+                  <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                  <span class="font-mono text-blue-900 font-semibold ml-1 text-[9px]">Data Viz Practices.xlsx</span>
+                </div>
+                <span class="px-1.5 py-0.2 rounded bg-indigo-600 text-white font-bold text-[8px]">Pareto 80/20</span>
+              </div>
+              <div class="p-2 space-y-1 bg-white font-mono text-[9px] mock-grid">
+                <div class="grid grid-cols-4 gap-1 px-1.5 py-0.5 bg-blue-50 text-blue-900 font-bold text-[8px] rounded">
+                  <span>KOMODITAS</span><span>NILAI ($)</span><span>SHARE</span><span>KUMULATIF</span>
+                </div>
+                <div class="grid grid-cols-4 gap-1 px-1.5 py-0.5 text-slate-600 border-b border-slate-100 text-[8.5px]">
+                  <span class="font-medium text-slate-800 truncate">1. Tekstil</span><span>$ 420M</span><span>38,5%</span><span class="text-blue-700 font-bold">38,5%</span>
+                </div>
+                <div class="grid grid-cols-4 gap-1 px-1.5 py-0.5 text-slate-600 text-[8.5px]">
+                  <span class="font-medium text-slate-800 truncate">2. Elektronik</span><span>$ 280M</span><span>25,6%</span><span class="text-blue-700 font-bold">64,1%</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-blue-100 text-blue-800 border border-blue-200 mb-2">
               <span>●</span> MySkill Certification Case
             </div>
-            <h3 class="text-lg font-bold text-slate-900 leading-tight">Visualisasi Ekspor Berstandar Industri & Analisis Pareto</h3>
-            <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+            <h3 class="text-base font-bold text-slate-900 leading-tight group-hover:text-blue-700 transition-colors">Visualisasi Ekspor Berstandar Industri & Analisis Pareto</h3>
+            <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">
               Penyelesaian 7 tugas visualisasi data ekspor komoditas Jawa Barat dengan kaidah <em>Data Visualization Best Practices</em>.
             </p>
-            <div class="mt-3 p-3 rounded-xl bg-blue-50/70 border border-blue-200 text-[11px] text-blue-900 space-y-1">
+            <div class="mt-3 p-2.5 rounded-xl bg-blue-50/70 border border-blue-200 text-[11px] text-blue-900 space-y-1">
               <div><strong>Teknik:</strong> Analisis Pareto 80/20 (Top 10 komoditas ekspor dan % kumulatif).</div>
               <div><strong>Prinsip:</strong> Eliminasi visual clutter, custom color emphasis untuk pembuat keputusan.</div>
             </div>
-            <div class="mt-4 flex flex-wrap gap-1.5">
+            <div class="mt-3 flex flex-wrap gap-1.5">
               <span class="text-[10px] px-2 py-0.5 bg-slate-100 text-slate-700 rounded font-medium">Pareto Analysis</span>
               <span class="text-[10px] px-2 py-0.5 bg-slate-100 text-slate-700 rounded font-medium">Best Practices</span>
               <span class="text-[10px] px-2 py-0.5 bg-slate-100 text-slate-700 rounded font-medium">Clean Charting</span>
             </div>
           </div>
-          <div class="pt-4 mt-5 border-t border-slate-100 flex items-center justify-between gap-2">
+          <div class="pt-3.5 mt-4 border-t border-slate-100 flex items-center justify-between gap-2">
             <span class="text-slate-500 font-mono text-[11px] truncate">Data Viz Practices.xlsx</span>
             <a href="https://docs.google.com/spreadsheets/d/1UJMV5Z0Bnm_qs2_-UTGG4YC8ngIQS_Rf/edit?usp=drive_link" target="_blank" class="btn-shimmer btn-ripple inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold bg-blue-700 hover:bg-blue-800 text-white transition-all shrink-0 shadow-md hover:scale-105 active:scale-95">
               <span>Buka Sheets ↗</span>
@@ -693,29 +1079,53 @@
         </div>
 
         <!-- KARTU 4: STUDY CASE 3 (ADVANCED CHARTING) -->
-        <div class="project-card case-card spotlight-card reveal-item bg-white rounded-2xl p-6 border border-slate-200 hover:border-blue-400 flex flex-col justify-between relative overflow-hidden shadow-sm hover:shadow-md transition-all">
-          <div class="absolute top-0 right-0 bg-blue-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl uppercase tracking-wider shadow-sm">
+        <div class="project-card case-card spotlight-card card-glass reveal-item rounded-2xl p-5 border border-slate-200 hover:border-blue-400 flex flex-col justify-between relative overflow-hidden shadow-sm hover:shadow-xl transition-all group">
+          <div class="absolute top-0 right-0 bg-blue-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl uppercase tracking-wider shadow-sm z-10">
             📚 Study Case
           </div>
           <div>
-            <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold bg-blue-100 text-blue-800 border border-blue-200 mb-3">
+            <!-- Mini Spreadsheet Mockup Header -->
+            <div class="mb-3.5 rounded-xl overflow-hidden border border-cyan-200/90 bg-cyan-50/50 shadow-2xs group-hover:border-cyan-400 transition-all">
+              <div class="px-2.5 py-1.5 bg-cyan-100/70 border-b border-cyan-200/80 flex items-center justify-between text-[10px]">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-rose-400"></span>
+                  <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+                  <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                  <span class="font-mono text-cyan-900 font-semibold ml-1 text-[9px]">Advanced Charting.xlsx</span>
+                </div>
+                <span class="px-1.5 py-0.2 rounded bg-cyan-600 text-white font-bold text-[8px]">Dual Axis</span>
+              </div>
+              <div class="p-2 space-y-1 bg-white font-mono text-[9px] mock-grid">
+                <div class="grid grid-cols-4 gap-1 px-1.5 py-0.5 bg-cyan-50 text-cyan-900 font-bold text-[8px] rounded">
+                  <span>PERIODE</span><span>TARGET</span><span>AKTUAL</span><span>TREN</span>
+                </div>
+                <div class="grid grid-cols-4 gap-1 px-1.5 py-0.5 text-slate-600 border-b border-slate-100 text-[8.5px]">
+                  <span>Semester 1</span><span>1.200 Unit</span><span>1.340 Unit</span><span class="text-emerald-600 font-bold">+11,6% ↗</span>
+                </div>
+                <div class="grid grid-cols-4 gap-1 px-1.5 py-0.5 text-slate-600 text-[8.5px]">
+                  <span>Semester 2</span><span>1.500 Unit</span><span>1.580 Unit</span><span class="text-emerald-600 font-bold">+5,3% ↗</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-blue-100 text-blue-800 border border-blue-200 mb-2">
               <span>●</span> MySkill Certification Case
             </div>
-            <h3 class="text-lg font-bold text-slate-900 leading-tight">Advanced Charting Techniques & Distribution</h3>
-            <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+            <h3 class="text-base font-bold text-slate-900 leading-tight group-hover:text-blue-700 transition-colors">Advanced Charting Techniques & Distribution</h3>
+            <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">
               Pengembangan grafik tingkat lanjut untuk analisis tren tahunan bulanan, secondary axis komparatif, dan histogram sebaran frekuensi data.
             </p>
-            <div class="mt-3 p-3 rounded-xl bg-blue-50/70 border border-blue-200 text-[11px] text-blue-900 space-y-1">
+            <div class="mt-3 p-2.5 rounded-xl bg-blue-50/70 border border-blue-200 text-[11px] text-blue-900 space-y-1">
               <div><strong>Teknik:</strong> Dual-axis charting, histogram interaktif, dan visualisasi distribusi volume transaksi.</div>
               <div><strong>Kegunaan:</strong> Membantu analisa pola musiman (<em>seasonality</em>) performa penjualan.</div>
             </div>
-            <div class="mt-4 flex flex-wrap gap-1.5">
+            <div class="mt-3 flex flex-wrap gap-1.5">
               <span class="text-[10px] px-2 py-0.5 bg-slate-100 text-slate-700 rounded font-medium">Advanced Charting</span>
               <span class="text-[10px] px-2 py-0.5 bg-slate-100 text-slate-700 rounded font-medium">Histogram</span>
               <span class="text-[10px] px-2 py-0.5 bg-slate-100 text-slate-700 rounded font-medium">Trend Analysis</span>
             </div>
           </div>
-          <div class="pt-4 mt-5 border-t border-slate-100 flex items-center justify-between gap-2">
+          <div class="pt-3.5 mt-4 border-t border-slate-100 flex items-center justify-between gap-2">
             <span class="text-slate-500 font-mono text-[11px] truncate">Advanced Charting.xlsx</span>
             <a href="https://docs.google.com/spreadsheets/d/1yVstSr41dhxjexhGYX5tKpOOz_S3zOHb/edit?usp=drive_link" target="_blank" class="btn-shimmer btn-ripple inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold bg-blue-700 hover:bg-blue-800 text-white transition-all shrink-0 shadow-md hover:scale-105 active:scale-95">
               <span>Buka Sheets ↗</span>
@@ -724,29 +1134,53 @@
         </div>
 
         <!-- KARTU 5: STUDY CASE 4 (INTERACTIVE CHARTS DYNAMIC) -->
-        <div class="project-card case-card spotlight-card reveal-item bg-white rounded-2xl p-6 border border-slate-200 hover:border-blue-400 flex flex-col justify-between relative overflow-hidden shadow-sm hover:shadow-md transition-all">
-          <div class="absolute top-0 right-0 bg-blue-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl uppercase tracking-wider shadow-sm">
+        <div class="project-card case-card spotlight-card card-glass reveal-item rounded-2xl p-5 border border-slate-200 hover:border-blue-400 flex flex-col justify-between relative overflow-hidden shadow-sm hover:shadow-xl transition-all group">
+          <div class="absolute top-0 right-0 bg-blue-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl uppercase tracking-wider shadow-sm z-10">
             📚 Study Case
           </div>
           <div>
-            <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold bg-blue-100 text-blue-800 border border-blue-200 mb-3">
+            <!-- Mini Spreadsheet Mockup Header -->
+            <div class="mb-3.5 rounded-xl overflow-hidden border border-purple-200/90 bg-purple-50/50 shadow-2xs group-hover:border-purple-400 transition-all">
+              <div class="px-2.5 py-1.5 bg-purple-100/70 border-b border-purple-200/80 flex items-center justify-between text-[10px]">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-rose-400"></span>
+                  <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+                  <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                  <span class="font-mono text-purple-900 font-semibold ml-1 text-[9px]">Interactive Charts.xlsx</span>
+                </div>
+                <span class="px-1.5 py-0.2 rounded bg-purple-600 text-white font-bold text-[8px]">Form Controls</span>
+              </div>
+              <div class="p-2 space-y-1 bg-white font-mono text-[9px] mock-grid">
+                <div class="grid grid-cols-3 gap-1 px-1.5 py-0.5 bg-purple-50 text-purple-900 font-bold text-[8px] rounded">
+                  <span>KONTROL AKTIF</span><span>KPI DINAMIS</span><span>NILAI LIVE</span>
+                </div>
+                <div class="grid grid-cols-3 gap-1 px-1.5 py-0.5 text-slate-600 border-b border-slate-100 text-[8.5px]">
+                  <span>Slider Q4</span><span>Total Penjualan</span><span class="text-purple-700 font-bold">Rp 2,29 M</span>
+                </div>
+                <div class="grid grid-cols-3 gap-1 px-1.5 py-0.5 text-slate-600 text-[8.5px]">
+                  <span>ComboBox</span><span>Rata-Rata Margin</span><span class="text-purple-700 font-bold">24,8%</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-blue-100 text-blue-800 border border-blue-200 mb-2">
               <span>●</span> MySkill Certification Case
             </div>
-            <h3 class="text-lg font-bold text-slate-900 leading-tight">Dashboard Dinamis dengan Form Controls</h3>
-            <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+            <h3 class="text-base font-bold text-slate-900 leading-tight group-hover:text-blue-700 transition-colors">Dashboard Dinamis dengan Form Controls</h3>
+            <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">
               Pembangunan lembar kerja pelaporan adaptif menggunakan tombol formulir <em>Form Controls</em> (scroll bar, combo box) dan kalkulasi statistik dinamis.
             </p>
-            <div class="mt-3 p-3 rounded-xl bg-blue-50/70 border border-blue-200 text-[11px] text-blue-900 space-y-1">
+            <div class="mt-3 p-2.5 rounded-xl bg-blue-50/70 border border-blue-200 text-[11px] text-blue-900 space-y-1">
               <div><strong>Fitur:</strong> Dynamic KPI cards (Total, Average, Min, Max) yang terhubung ke parameter kontrol.</div>
               <div><strong>Interaktivitas:</strong> Visualisasi berubah saat slider digerakkan.</div>
             </div>
-            <div class="mt-4 flex flex-wrap gap-1.5">
+            <div class="mt-3 flex flex-wrap gap-1.5">
               <span class="text-[10px] px-2 py-0.5 bg-slate-100 text-slate-700 rounded font-medium">Form Controls</span>
               <span class="text-[10px] px-2 py-0.5 bg-slate-100 text-slate-700 rounded font-medium">Dynamic Charts</span>
               <span class="text-[10px] px-2 py-0.5 bg-slate-100 text-slate-700 rounded font-medium">Advanced Excel</span>
             </div>
           </div>
-          <div class="pt-4 mt-5 border-t border-slate-100 flex items-center justify-between gap-2">
+          <div class="pt-3.5 mt-4 border-t border-slate-100 flex items-center justify-between gap-2">
             <span class="text-slate-500 font-mono text-[11px] truncate">Interactive Charts.xlsx</span>
             <a href="https://docs.google.com/spreadsheets/d/1C8HgXFfEdt5Xniex1o9QuV-isEhmeaFa/edit?usp=drive_link" target="_blank" class="btn-shimmer btn-ripple inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold bg-blue-700 hover:bg-blue-800 text-white transition-all shrink-0 shadow-md hover:scale-105 active:scale-95">
               <span>Buka Sheets ↗</span>
@@ -755,153 +1189,273 @@
         </div>
 
         <!-- KARTU 6: DUMMY CASE 1 (KAS KECIL & PETTY CASH) -->
-        <div class="project-card dummy-card spotlight-card reveal-item bg-white rounded-2xl p-6 border border-slate-200 hover:border-purple-400 flex flex-col justify-between relative overflow-hidden shadow-sm hover:shadow-md transition-all">
-          <div class="absolute top-0 right-0 bg-purple-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl uppercase tracking-wider shadow-sm">
-            🛠️ Proyek Simulasi (Dummy)
+        <div class="project-card dummy-card spotlight-card card-glass reveal-item rounded-2xl p-5 border border-slate-200 hover:border-teal-400 flex flex-col justify-between relative overflow-hidden shadow-sm hover:shadow-xl transition-all group">
+          <div class="absolute top-0 right-0 bg-teal-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl uppercase tracking-wider shadow-sm z-10">
+            🛠️ Proyek Simulasi
           </div>
           <div>
-            <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold bg-purple-100 text-purple-800 border border-purple-200 mb-3">
+            <!-- Mini Spreadsheet Mockup Header -->
+            <div class="mb-3.5 rounded-xl overflow-hidden border border-teal-200/90 bg-teal-50/50 shadow-2xs group-hover:border-teal-400 transition-all">
+              <div class="px-2.5 py-1.5 bg-teal-100/70 border-b border-teal-200/80 flex items-center justify-between text-[10px]">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-rose-400"></span>
+                  <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+                  <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                  <span class="font-mono text-teal-900 font-semibold ml-1 text-[9px]">Buku_Kas_Kecil.xlsx</span>
+                </div>
+                <span class="px-1.5 py-0.2 rounded bg-teal-700 text-white font-bold text-[8px]">Imprest Fund</span>
+              </div>
+              <div class="p-2 space-y-1 bg-white font-mono text-[9px] mock-grid">
+                <div class="grid grid-cols-4 gap-1 px-1.5 py-0.5 bg-teal-50 text-teal-900 font-bold text-[8px] rounded">
+                  <span>TGL</span><span>KETERANGAN</span><span>KELUAR</span><span>SALDO KAS</span>
+                </div>
+                <div class="grid grid-cols-4 gap-1 px-1.5 py-0.5 text-slate-600 border-b border-slate-100 text-[8.5px]">
+                  <span>01/08</span><span class="truncate">Dana Awal</span><span>-</span><span class="font-bold text-slate-800">1.000.000</span>
+                </div>
+                <div class="grid grid-cols-4 gap-1 px-1.5 py-0.5 text-slate-600 text-[8.5px]">
+                  <span>03/08</span><span class="truncate">Biaya ATK</span><span class="text-rose-600 font-semibold">150.000</span><span class="font-bold text-teal-700">850.000</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-teal-100 text-teal-800 border border-teal-200 mb-2">
               <span>●</span> CV Mitra Kemasan Nusantara (Simulasi)
             </div>
-            <h3 class="text-lg font-bold text-slate-900 leading-tight">Buku Kas Kecil & Petty Cash Terautomasi</h3>
-            <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+            <h3 class="text-base font-bold text-slate-900 leading-tight group-hover:text-teal-700 transition-colors">Buku Kas Kecil & Petty Cash Terautomasi</h3>
+            <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">
               Pencatatan debet/kredit harian dana kas operasional kantor Rp 1.000.000 dengan kalkulasi saldo dinamis berkesinambungan.
             </p>
-            <div class="mt-3 p-3 rounded-xl bg-purple-50/70 border border-purple-200 text-[11px] text-purple-900 space-y-1">
+            <div class="mt-3 p-2.5 rounded-xl bg-teal-50/60 border border-teal-200 text-[11px] text-teal-950 space-y-1">
               <div><strong>Fungsi Operasional:</strong> Rekap kategori biaya otomatis, porsi pengeluaran konsumsi/ATK/transport, dan audit saldo kas.</div>
               <div class="text-teal-700 font-mono font-medium">Formula: SUMIF, COUNTIFS, ROUND, Rolling Balance</div>
             </div>
-            <div class="mt-4 flex flex-wrap gap-1.5">
+            <div class="mt-3 flex flex-wrap gap-1.5">
               <span class="text-[10px] px-2 py-0.5 bg-slate-100 text-slate-700 rounded font-medium">Petty Cash</span>
               <span class="text-[10px] px-2 py-0.5 bg-slate-100 text-slate-700 rounded font-medium">Finance Admin</span>
               <span class="text-[10px] px-2 py-0.5 bg-slate-100 text-slate-700 rounded font-medium">Simulasi Usaha</span>
             </div>
           </div>
-          <div class="pt-4 mt-5 border-t border-slate-100 flex items-center justify-between gap-2">
+          <div class="pt-3.5 mt-4 border-t border-slate-100 flex items-center justify-between gap-2">
             <span class="text-slate-500 font-mono text-[11px] truncate">Buku_Kas_Kecil.xlsx</span>
-            <a href="https://docs.google.com/spreadsheets/d/19-hW6Hij-j8UGLM-G71ZscCL4D9Hxx46/edit?usp=drive_link" target="_blank" class="btn-shimmer btn-ripple inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold bg-purple-700 hover:bg-purple-800 text-white transition-all shrink-0 shadow-md hover:scale-105 active:scale-95">
+            <a href="https://docs.google.com/spreadsheets/d/19-hW6Hij-j8UGLM-G71ZscCL4D9Hxx46/edit?usp=drive_link" target="_blank" class="btn-shimmer btn-ripple inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold bg-teal-700 hover:bg-teal-800 text-white transition-all shrink-0 shadow-md hover:scale-105 active:scale-95">
               <span>Buka Sheets ↗</span>
             </a>
           </div>
         </div>
 
         <!-- KARTU 7: DUMMY CASE 2 (INVOICE PENJUALAN) -->
-        <div class="project-card dummy-card spotlight-card reveal-item bg-white rounded-2xl p-6 border border-slate-200 hover:border-purple-400 flex flex-col justify-between relative overflow-hidden shadow-sm hover:shadow-md transition-all">
-          <div class="absolute top-0 right-0 bg-purple-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl uppercase tracking-wider shadow-sm">
-            🛠️ Proyek Simulasi (Dummy)
+        <div class="project-card dummy-card spotlight-card card-glass reveal-item rounded-2xl p-5 border border-slate-200 hover:border-emerald-400 flex flex-col justify-between relative overflow-hidden shadow-sm hover:shadow-xl transition-all group">
+          <div class="absolute top-0 right-0 bg-emerald-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl uppercase tracking-wider shadow-sm z-10">
+            🛠️ Proyek Simulasi
           </div>
           <div>
-            <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold bg-purple-100 text-purple-800 border border-purple-200 mb-3">
+            <!-- Mini Spreadsheet Mockup Header -->
+            <div class="mb-3.5 rounded-xl overflow-hidden border border-emerald-200/90 bg-emerald-50/50 shadow-2xs group-hover:border-emerald-400 transition-all">
+              <div class="px-2.5 py-1.5 bg-emerald-100/70 border-b border-emerald-200/80 flex items-center justify-between text-[10px]">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-rose-400"></span>
+                  <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+                  <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                  <span class="font-mono text-emerald-900 font-semibold ml-1 text-[9px]">Invoice_Penjualan.xlsx</span>
+                </div>
+                <span class="px-1.5 py-0.2 rounded bg-emerald-700 text-white font-bold text-[8px]">PPN 11% Auto</span>
+              </div>
+              <div class="p-2 space-y-1 bg-white font-mono text-[9px] mock-grid">
+                <div class="grid grid-cols-4 gap-1 px-1.5 py-0.5 bg-emerald-50 text-emerald-900 font-bold text-[8px] rounded">
+                  <span>KODE</span><span>ITEM</span><span>QTY</span><span>TOTAL (RP)</span>
+                </div>
+                <div class="grid grid-cols-4 gap-1 px-1.5 py-0.5 text-slate-600 border-b border-slate-100 text-[8.5px]">
+                  <span>KB-01</span><span class="truncate">Standing Pouch</span><span>500 Pcs</span><span class="font-bold text-slate-800">750.000</span>
+                </div>
+                <div class="grid grid-cols-4 gap-1 px-1.5 py-0.5 text-slate-600 text-[8.5px]">
+                  <span colspan="2" class="col-span-2 text-slate-400">PPN 11% + 14 Hari Tempo</span><span></span><span class="font-bold text-emerald-700">832.500</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-200 mb-2">
               <span>●</span> CV Mitra Kemasan Nusantara (Simulasi)
             </div>
-            <h3 class="text-lg font-bold text-slate-900 leading-tight">Invoice Penjualan Otomatis & PPN 11%</h3>
-            <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+            <h3 class="text-base font-bold text-slate-900 leading-tight group-hover:text-emerald-700 transition-colors">Invoice Penjualan Otomatis & PPN 11%</h3>
+            <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">
               Faktur penjualan kemasan UMKM kuliner dengan penarikan otomatis harga satuan dari Master Barang dan kalkulasi pajak PPN 11%.
             </p>
-            <div class="mt-3 p-3 rounded-xl bg-purple-50/70 border border-purple-200 text-[11px] text-purple-900 space-y-1">
+            <div class="mt-3 p-2.5 rounded-xl bg-emerald-50/60 border border-emerald-200 text-[11px] text-emerald-950 space-y-1">
               <div><strong>Fungsi Operasional:</strong> Jatuh tempo otomatis 14 hari, proteksi kode barang salah via error handling terintegrasi.</div>
               <div class="text-emerald-700 font-mono font-medium">Formula: VLOOKUP, IFERROR, SUM, Date Offset</div>
             </div>
-            <div class="mt-4 flex flex-wrap gap-1.5">
+            <div class="mt-3 flex flex-wrap gap-1.5">
               <span class="text-[10px] px-2 py-0.5 bg-slate-100 text-slate-700 rounded font-medium">Billing & Invoice</span>
               <span class="text-[10px] px-2 py-0.5 bg-slate-100 text-slate-700 rounded font-medium">Sales Ops</span>
               <span class="text-[10px] px-2 py-0.5 bg-slate-100 text-slate-700 rounded font-medium">Simulasi Usaha</span>
             </div>
           </div>
-          <div class="pt-4 mt-5 border-t border-slate-100 flex items-center justify-between gap-2">
+          <div class="pt-3.5 mt-4 border-t border-slate-100 flex items-center justify-between gap-2">
             <span class="text-slate-500 font-mono text-[11px] truncate">Invoice_Penjualan.xlsx</span>
-            <a href="https://docs.google.com/spreadsheets/d/11PyAc9Wwdve4DLteaq4LkWuFwr--zx-v/edit?usp=drive_link" target="_blank" class="btn-shimmer btn-ripple inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold bg-purple-700 hover:bg-purple-800 text-white transition-all shrink-0 shadow-md hover:scale-105 active:scale-95">
+            <a href="https://docs.google.com/spreadsheets/d/11PyAc9Wwdve4DLteaq4LkWuFwr--zx-v/edit?usp=drive_link" target="_blank" class="btn-shimmer btn-ripple inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold bg-emerald-700 hover:bg-emerald-800 text-white transition-all shrink-0 shadow-md hover:scale-105 active:scale-95">
               <span>Buka Sheets ↗</span>
             </a>
           </div>
         </div>
 
         <!-- KARTU 8: DUMMY CASE 3 (PAYROLL GAJI & LEMBUR) -->
-        <div class="project-card dummy-card spotlight-card reveal-item bg-white rounded-2xl p-6 border border-slate-200 hover:border-purple-400 flex flex-col justify-between relative overflow-hidden shadow-sm hover:shadow-md transition-all">
-          <div class="absolute top-0 right-0 bg-purple-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl uppercase tracking-wider shadow-sm">
-            🛠️ Proyek Simulasi (Dummy)
+        <div class="project-card dummy-card spotlight-card card-glass reveal-item rounded-2xl p-5 border border-slate-200 hover:border-indigo-400 flex flex-col justify-between relative overflow-hidden shadow-sm hover:shadow-xl transition-all group">
+          <div class="absolute top-0 right-0 bg-indigo-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl uppercase tracking-wider shadow-sm z-10">
+            🛠️ Proyek Simulasi
           </div>
           <div>
-            <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold bg-purple-100 text-purple-800 border border-purple-200 mb-3">
+            <!-- Mini Spreadsheet Mockup Header -->
+            <div class="mb-3.5 rounded-xl overflow-hidden border border-indigo-200/90 bg-indigo-50/50 shadow-2xs group-hover:border-indigo-400 transition-all">
+              <div class="px-2.5 py-1.5 bg-indigo-100/70 border-b border-indigo-200/80 flex items-center justify-between text-[10px]">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-rose-400"></span>
+                  <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+                  <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                  <span class="font-mono text-indigo-900 font-semibold ml-1 text-[9px]">Payroll_Gaji_Lembur.xlsx</span>
+                </div>
+                <span class="px-1.5 py-0.2 rounded bg-indigo-700 text-white font-bold text-[8px]">8 Karyawan</span>
+              </div>
+              <div class="p-2 space-y-1 bg-white font-mono text-[9px] mock-grid">
+                <div class="grid grid-cols-4 gap-1 px-1.5 py-0.5 bg-indigo-50 text-indigo-900 font-bold text-[8px] rounded">
+                  <span>NAMA</span><span>PRESENSI</span><span>LEMBUR</span><span>TAKE HOME</span>
+                </div>
+                <div class="grid grid-cols-4 gap-1 px-1.5 py-0.5 text-slate-600 border-b border-slate-100 text-[8.5px]">
+                  <span class="font-medium text-slate-800">Ahmad</span><span>27 Hari</span><span>8 Jam</span><span class="font-bold text-slate-800">Rp 4,25M</span>
+                </div>
+                <div class="grid grid-cols-4 gap-1 px-1.5 py-0.5 text-slate-600 text-[8.5px]">
+                  <span class="font-medium text-slate-800">Budi S.</span><span>27 Hari</span><span>4 Jam</span><span class="font-bold text-indigo-700">Rp 3,95M</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-indigo-100 text-indigo-800 border border-indigo-200 mb-2">
               <span>●</span> CV Mitra Kemasan Nusantara (Simulasi)
             </div>
-            <h3 class="text-lg font-bold text-slate-900 leading-tight">Payroll Gaji & Lembur Karyawan Terintegrasi</h3>
-            <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+            <h3 class="text-base font-bold text-slate-900 leading-tight group-hover:text-indigo-700 transition-colors">Payroll Gaji & Lembur Karyawan Terintegrasi</h3>
+            <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">
               Perhitungan kompensasi 8 staf operasional berdasarkan matriks presensi 27 hari kerja, upah lembur per jam, dan take home pay.
             </p>
-            <div class="mt-3 p-3 rounded-xl bg-purple-50/70 border border-purple-200 text-[11px] text-purple-900 space-y-1">
+            <div class="mt-3 p-2.5 rounded-xl bg-indigo-50/60 border border-indigo-200 text-[11px] text-indigo-950 space-y-1">
               <div><strong>Fungsi Operasional:</strong> Validasi presensi otomatis (OK/Cek lagi), pemotongan mangkir, kalkulasi total penggajian bulanan.</div>
               <div class="text-indigo-700 font-mono font-medium">Formula: VLOOKUP, SUM, IF(SUM=27), Multiply Rate</div>
             </div>
-            <div class="mt-4 flex flex-wrap gap-1.5">
+            <div class="mt-3 flex flex-wrap gap-1.5">
               <span class="text-[10px] px-2 py-0.5 bg-slate-100 text-slate-700 rounded font-medium">HR Payroll</span>
               <span class="text-[10px] px-2 py-0.5 bg-slate-100 text-slate-700 rounded font-medium">Attendance Matrix</span>
               <span class="text-[10px] px-2 py-0.5 bg-slate-100 text-slate-700 rounded font-medium">Simulasi Usaha</span>
             </div>
           </div>
-          <div class="pt-4 mt-5 border-t border-slate-100 flex items-center justify-between gap-2">
+          <div class="pt-3.5 mt-4 border-t border-slate-100 flex items-center justify-between gap-2">
             <span class="text-slate-500 font-mono text-[11px] truncate">Payroll_Gaji_Lembur.xlsx</span>
-            <a href="https://docs.google.com/spreadsheets/d/1nrDk61db4acLF6nMnLhUafQcjRc4opEs/edit?usp=drive_link" target="_blank" class="btn-shimmer btn-ripple inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold bg-purple-700 hover:bg-purple-800 text-white transition-all shrink-0 shadow-md hover:scale-105 active:scale-95">
+            <a href="https://docs.google.com/spreadsheets/d/1nrDk61db4acLF6nMnLhUafQcjRc4opEs/edit?usp=drive_link" target="_blank" class="btn-shimmer btn-ripple inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold bg-indigo-700 hover:bg-indigo-800 text-white transition-all shrink-0 shadow-md hover:scale-105 active:scale-95">
               <span>Buka Sheets ↗</span>
             </a>
           </div>
         </div>
 
         <!-- KARTU 9: DUMMY CASE 4 (DATA CLEANING PELANGGAN) -->
-        <div class="project-card dummy-card spotlight-card reveal-item bg-white rounded-2xl p-6 border border-slate-200 hover:border-purple-400 flex flex-col justify-between relative overflow-hidden shadow-sm hover:shadow-md transition-all">
-          <div class="absolute top-0 right-0 bg-purple-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl uppercase tracking-wider shadow-sm">
-            🛠️ Proyek Simulasi (Dummy)
+        <div class="project-card dummy-card spotlight-card card-glass reveal-item rounded-2xl p-5 border border-slate-200 hover:border-amber-400 flex flex-col justify-between relative overflow-hidden shadow-sm hover:shadow-xl transition-all group">
+          <div class="absolute top-0 right-0 bg-amber-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl uppercase tracking-wider shadow-sm z-10">
+            🛠️ Proyek Simulasi
           </div>
           <div>
-            <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold bg-purple-100 text-purple-800 border border-purple-200 mb-3">
+            <!-- Mini Spreadsheet Mockup Header -->
+            <div class="mb-3.5 rounded-xl overflow-hidden border border-amber-200/90 bg-amber-50/50 shadow-2xs group-hover:border-amber-400 transition-all">
+              <div class="px-2.5 py-1.5 bg-amber-100/70 border-b border-amber-200/80 flex items-center justify-between text-[10px]">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-rose-400"></span>
+                  <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+                  <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                  <span class="font-mono text-amber-900 font-semibold ml-1 text-[9px]">Data_Cleaning.xlsx</span>
+                </div>
+                <span class="px-1.5 py-0.2 rounded bg-amber-600 text-white font-bold text-[8px]">TRIM / PROPER</span>
+              </div>
+              <div class="p-2 space-y-1 bg-white font-mono text-[9px] mock-grid">
+                <div class="grid grid-cols-3 gap-1 px-1.5 py-0.5 bg-amber-50 text-amber-900 font-bold text-[8px] rounded">
+                  <span>DATA RAW (SEBELUM)</span><span>HASIL STANDARISASI</span><span>STATUS</span>
+                </div>
+                <div class="grid grid-cols-3 gap-1 px-1.5 py-0.5 text-slate-600 border-b border-slate-100 text-[8.5px]">
+                  <span class="text-rose-500 font-mono truncate">"  bUdi   sAntoso  "</span><span class="font-bold text-slate-800 truncate">Budi Santoso</span><span class="text-emerald-600 font-bold">✓ Bersih</span>
+                </div>
+                <div class="grid grid-cols-3 gap-1 px-1.5 py-0.5 text-slate-600 text-[8.5px]">
+                  <span class="text-rose-500 font-mono truncate">0812-4433-2211</span><span class="font-bold text-slate-800 truncate">6281244332211</span><span class="text-emerald-600 font-bold">✓ Valid WA</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-amber-100 text-amber-800 border border-amber-200 mb-2">
               <span>●</span> CV Mitra Kemasan Nusantara (Simulasi)
             </div>
-            <h3 class="text-lg font-bold text-slate-900 leading-tight">Data Entry & Cleansing Pelanggan Multichannel</h3>
-            <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+            <h3 class="text-base font-bold text-slate-900 leading-tight group-hover:text-amber-700 transition-colors">Data Entry & Cleansing Pelanggan Multichannel</h3>
+            <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">
               Pembersihan 20 baris data mentah multichannel (web, WhatsApp, pameran expo) untuk standardisasi kampanye promosi penjualan.
             </p>
-            <div class="mt-3 p-3 rounded-xl bg-purple-50/70 border border-purple-200 text-[11px] text-purple-900 space-y-1">
+            <div class="mt-3 p-2.5 rounded-xl bg-amber-50/60 border border-amber-200 text-[11px] text-amber-950 space-y-1">
               <div><strong>Fungsi Operasional:</strong> Eliminasi spasi berlebih, unifikasi nomor telepon WhatsApp bisnis, serta standardisasi huruf kapital.</div>
               <div class="text-amber-700 font-mono font-medium">Formula: TRIM, PROPER, UPPER, COUNTIF</div>
             </div>
-            <div class="mt-4 flex flex-wrap gap-1.5">
+            <div class="mt-3 flex flex-wrap gap-1.5">
               <span class="text-[10px] px-2 py-0.5 bg-slate-100 text-slate-700 rounded font-medium">CRM Cleansing</span>
               <span class="text-[10px] px-2 py-0.5 bg-slate-100 text-slate-700 rounded font-medium">Data Entry</span>
               <span class="text-[10px] px-2 py-0.5 bg-slate-100 text-slate-700 rounded font-medium">Simulasi Usaha</span>
             </div>
           </div>
-          <div class="pt-4 mt-5 border-t border-slate-100 flex items-center justify-between gap-2">
+          <div class="pt-3.5 mt-4 border-t border-slate-100 flex items-center justify-between gap-2">
             <span class="text-slate-500 font-mono text-[11px] truncate">Data_Cleaning_Pelanggan.xlsx</span>
-            <a href="https://docs.google.com/spreadsheets/d/1_iq9WXxv8kx2_j7dJPQJNhbtG5umKR2A/edit?usp=drive_link" target="_blank" class="btn-shimmer btn-ripple inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold bg-purple-700 hover:bg-purple-800 text-white transition-all shrink-0 shadow-md hover:scale-105 active:scale-95">
+            <a href="https://docs.google.com/spreadsheets/d/1_iq9WXxv8kx2_j7dJPQJNhbtG5umKR2A/edit?usp=drive_link" target="_blank" class="btn-shimmer btn-ripple inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold bg-amber-700 hover:bg-amber-800 text-white transition-all shrink-0 shadow-md hover:scale-105 active:scale-95">
               <span>Buka Sheets ↗</span>
             </a>
           </div>
         </div>
 
         <!-- KARTU 10: DUMMY CASE 5 (REGISTER ARSIP DIGITAL) -->
-        <div class="project-card dummy-card spotlight-card reveal-item bg-white rounded-2xl p-6 border border-slate-200 hover:border-purple-400 flex flex-col justify-between relative overflow-hidden shadow-sm hover:shadow-md transition-all">
-          <div class="absolute top-0 right-0 bg-purple-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl uppercase tracking-wider shadow-sm">
-            🛠️ Proyek Simulasi (Dummy)
+        <div class="project-card dummy-card spotlight-card card-glass reveal-item rounded-2xl p-5 border border-slate-200 hover:border-purple-400 flex flex-col justify-between relative overflow-hidden shadow-sm hover:shadow-xl transition-all group">
+          <div class="absolute top-0 right-0 bg-purple-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl uppercase tracking-wider shadow-sm z-10">
+            🛠️ Proyek Simulasi
           </div>
           <div>
-            <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold bg-purple-100 text-purple-800 border border-purple-200 mb-3">
+            <!-- Mini Spreadsheet Mockup Header -->
+            <div class="mb-3.5 rounded-xl overflow-hidden border border-purple-200/90 bg-purple-50/50 shadow-2xs group-hover:border-purple-400 transition-all">
+              <div class="px-2.5 py-1.5 bg-purple-100/70 border-b border-purple-200/80 flex items-center justify-between text-[10px]">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-rose-400"></span>
+                  <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+                  <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                  <span class="font-mono text-purple-900 font-semibold ml-1 text-[9px]">Register_Arsip_Digital.xlsx</span>
+                </div>
+                <span class="px-1.5 py-0.2 rounded bg-purple-700 text-white font-bold text-[8px]">E-Filing</span>
+              </div>
+              <div class="p-2 space-y-1 bg-white font-mono text-[9px] mock-grid">
+                <div class="grid grid-cols-4 gap-1 px-1.5 py-0.5 bg-purple-50 text-purple-900 font-bold text-[8px] rounded">
+                  <span>KODE</span><span>NAMA DOKUMEN</span><span>RETENSI</span><span>LOKASI</span>
+                </div>
+                <div class="grid grid-cols-4 gap-1 px-1.5 py-0.5 text-slate-600 border-b border-slate-100 text-[8.5px]">
+                  <span>ARS-01</span><span class="truncate">Kontrak Sewa</span><span>5 Thn</span><span class="text-purple-700 font-bold">Rak A-1</span>
+                </div>
+                <div class="grid grid-cols-4 gap-1 px-1.5 py-0.5 text-slate-600 text-[8.5px]">
+                  <span>ARS-02</span><span class="truncate">Pajak Usaha</span><span>10 Thn</span><span class="text-purple-700 font-bold">Drive Cloud</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-purple-100 text-purple-800 border border-purple-200 mb-2">
               <span>●</span> CV Mitra Kemasan Nusantara (Simulasi)
             </div>
-            <h3 class="text-lg font-bold text-slate-900 leading-tight">Register Arsip Digital & Retensi Dokumen</h3>
-            <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+            <h3 class="text-base font-bold text-slate-900 leading-tight group-hover:text-purple-700 transition-colors">Register Arsip Digital & Retensi Dokumen</h3>
+            <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">
               Sistem pencatatan terpusat arsip fisik & digital, penomoran kode otomatis, serta pemantauan masa retensi aktif berkas (1-10 tahun).
             </p>
-            <div class="mt-3 p-3 rounded-xl bg-purple-50/70 border border-purple-200 text-[11px] text-purple-900 space-y-1">
+            <div class="mt-3 p-2.5 rounded-xl bg-purple-50/60 border border-purple-200 text-[11px] text-purple-950 space-y-1">
               <div><strong>Fungsi Operasional:</strong> Sheet khusus "Cari Arsip" sebagai mesin pencari berkas secara instan hanya dengan mengetik nomor berkas.</div>
               <div class="text-purple-700 font-mono font-medium">Formula: TEXT, VLOOKUP, COUNTIF, Year Retention</div>
             </div>
-            <div class="mt-4 flex flex-wrap gap-1.5">
+            <div class="mt-3 flex flex-wrap gap-1.5">
               <span class="text-[10px] px-2 py-0.5 bg-slate-100 text-slate-700 rounded font-medium">Filing & Records</span>
               <span class="text-[10px] px-2 py-0.5 bg-slate-100 text-slate-700 rounded font-medium">Arsiparis</span>
               <span class="text-[10px] px-2 py-0.5 bg-slate-100 text-slate-700 rounded font-medium">Simulasi Usaha</span>
             </div>
           </div>
-          <div class="pt-4 mt-5 border-t border-slate-100 flex items-center justify-between gap-2">
+          <div class="pt-3.5 mt-4 border-t border-slate-100 flex items-center justify-between gap-2">
             <span class="text-slate-500 font-mono text-[11px] truncate">Register_Arsip_Digital.xlsx</span>
             <a href="https://docs.google.com/spreadsheets/d/1-REdNQEqrHeeNlKMPZG2qQCQuob87boI/edit?usp=drive_link" target="_blank" class="btn-shimmer btn-ripple inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold bg-purple-700 hover:bg-purple-800 text-white transition-all shrink-0 shadow-md hover:scale-105 active:scale-95">
               <span>Buka Sheets ↗</span>
@@ -910,122 +1464,218 @@
         </div>
 
         <!-- KARTU 11: DUMMY CASE 6 (TRACKER KONTRAK VENDOR) -->
-        <div class="project-card dummy-card spotlight-card reveal-item bg-white rounded-2xl p-6 border border-slate-200 hover:border-purple-400 flex flex-col justify-between relative overflow-hidden shadow-sm hover:shadow-md transition-all">
-          <div class="absolute top-0 right-0 bg-purple-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl uppercase tracking-wider shadow-sm">
-            🛠️ Proyek Simulasi (Dummy)
+        <div class="project-card dummy-card spotlight-card card-glass reveal-item rounded-2xl p-5 border border-slate-200 hover:border-rose-400 flex flex-col justify-between relative overflow-hidden shadow-sm hover:shadow-xl transition-all group">
+          <div class="absolute top-0 right-0 bg-rose-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl uppercase tracking-wider shadow-sm z-10">
+            🛠️ Proyek Simulasi
           </div>
           <div>
-            <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold bg-purple-100 text-purple-800 border border-purple-200 mb-3">
+            <!-- Mini Spreadsheet Mockup Header -->
+            <div class="mb-3.5 rounded-xl overflow-hidden border border-rose-200/90 bg-rose-50/50 shadow-2xs group-hover:border-rose-400 transition-all">
+              <div class="px-2.5 py-1.5 bg-rose-100/70 border-b border-rose-200/80 flex items-center justify-between text-[10px]">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-rose-400"></span>
+                  <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+                  <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                  <span class="font-mono text-rose-900 font-semibold ml-1 text-[9px]">Tracker_Kontrak.xlsx</span>
+                </div>
+                <span class="px-1.5 py-0.2 rounded bg-rose-600 text-white font-bold text-[8px]">=TODAY() Alert</span>
+              </div>
+              <div class="p-2 space-y-1 bg-white font-mono text-[9px] mock-grid">
+                <div class="grid grid-cols-4 gap-1 px-1.5 py-0.5 bg-rose-50 text-rose-900 font-bold text-[8px] rounded">
+                  <span>VENDOR</span><span>TENGGAT</span><span>SISA HARI</span><span>STATUS</span>
+                </div>
+                <div class="grid grid-cols-4 gap-1 px-1.5 py-0.5 text-slate-600 border-b border-slate-100 text-[8.5px]">
+                  <span class="truncate">PT Percetakan</span><span>15/12/26</span><span>36 Hari</span><span class="text-emerald-600 font-bold">🟢 Aman</span>
+                </div>
+                <div class="grid grid-cols-4 gap-1 px-1.5 py-0.5 text-slate-600 text-[8.5px]">
+                  <span class="truncate">Sewa Kantor</span><span>30/11/26</span><span>21 Hari</span><span class="text-amber-600 font-bold">🟡 Perpanjang</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-rose-100 text-rose-800 border border-rose-200 mb-2">
               <span>●</span> CV Mitra Kemasan Nusantara (Simulasi)
             </div>
-            <h3 class="text-lg font-bold text-slate-900 leading-tight">Tracker Kontrak & SLA Vendor Real-Time</h3>
-            <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+            <h3 class="text-base font-bold text-slate-900 leading-tight group-hover:text-rose-700 transition-colors">Tracker Kontrak & SLA Vendor Real-Time</h3>
+            <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">
               Monitoring masa berlaku kontrak kerja sama vendor (percetakan, ATK, sewa kantor, perizinan) dengan sistem peringatan dini.
             </p>
-            <div class="mt-3 p-3 rounded-xl bg-purple-50/70 border border-purple-200 text-[11px] text-purple-900 space-y-1">
+            <div class="mt-3 p-2.5 rounded-xl bg-rose-50/60 border border-rose-200 text-[11px] text-rose-950 space-y-1">
               <div><strong>Fungsi Operasional:</strong> Hitung mundur sisa hari dinamis, alert status otomatis (Aman / Segera Berakhir / Kedaluwarsa).</div>
               <div class="text-rose-700 font-mono font-medium">Formula: TODAY, IF, SUMIF, COUNTIF, Conditional Formatting</div>
             </div>
-            <div class="mt-4 flex flex-wrap gap-1.5">
+            <div class="mt-3 flex flex-wrap gap-1.5">
               <span class="text-[10px] px-2 py-0.5 bg-slate-100 text-slate-700 rounded font-medium">Vendor Management</span>
               <span class="text-[10px] px-2 py-0.5 bg-slate-100 text-slate-700 rounded font-medium">Contract SLA</span>
               <span class="text-[10px] px-2 py-0.5 bg-slate-100 text-slate-700 rounded font-medium">Simulasi Usaha</span>
             </div>
           </div>
-          <div class="pt-4 mt-5 border-t border-slate-100 flex items-center justify-between gap-2">
+          <div class="pt-3.5 mt-4 border-t border-slate-100 flex items-center justify-between gap-2">
             <span class="text-slate-500 font-mono text-[11px] truncate">Tracker_Kontrak.xlsx</span>
-            <a href="https://docs.google.com/spreadsheets/d/1rxzTodO3uterMUcJlFJubihH2a_FGpR6/edit?usp=drive_link" target="_blank" class="btn-shimmer btn-ripple inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold bg-purple-700 hover:bg-purple-800 text-white transition-all shrink-0 shadow-md hover:scale-105 active:scale-95">
+            <a href="https://docs.google.com/spreadsheets/d/1rxzTodO3uterMUcJlFJubihH2a_FGpR6/edit?usp=drive_link" target="_blank" class="btn-shimmer btn-ripple inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold bg-rose-700 hover:bg-rose-800 text-white transition-all shrink-0 shadow-md hover:scale-105 active:scale-95">
               <span>Buka Sheets ↗</span>
             </a>
           </div>
         </div>
 
         <!-- KARTU 12: DUMMY CASE 7 (BUKU TAMU & LOG PELAYANAN) -->
-        <div class="project-card dummy-card spotlight-card reveal-item bg-white rounded-2xl p-6 border border-slate-200 hover:border-purple-400 flex flex-col justify-between relative overflow-hidden shadow-sm hover:shadow-md transition-all">
-          <div class="absolute top-0 right-0 bg-purple-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl uppercase tracking-wider shadow-sm">
-            🛠️ Proyek Simulasi (Dummy)
+        <div class="project-card dummy-card spotlight-card card-glass reveal-item rounded-2xl p-5 border border-slate-200 hover:border-sky-400 flex flex-col justify-between relative overflow-hidden shadow-sm hover:shadow-xl transition-all group">
+          <div class="absolute top-0 right-0 bg-sky-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl uppercase tracking-wider shadow-sm z-10">
+            🛠️ Proyek Simulasi
           </div>
           <div>
-            <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold bg-purple-100 text-purple-800 border border-purple-200 mb-3">
+            <!-- Mini Spreadsheet Mockup Header -->
+            <div class="mb-3.5 rounded-xl overflow-hidden border border-sky-200/90 bg-sky-50/50 shadow-2xs group-hover:border-sky-400 transition-all">
+              <div class="px-2.5 py-1.5 bg-sky-100/70 border-b border-sky-200/80 flex items-center justify-between text-[10px]">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-rose-400"></span>
+                  <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+                  <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                  <span class="font-mono text-sky-900 font-semibold ml-1 text-[9px]">Buku_Tamu_Log.xlsx</span>
+                </div>
+                <span class="px-1.5 py-0.2 rounded bg-sky-600 text-white font-bold text-[8px]">Front Office</span>
+              </div>
+              <div class="p-2 space-y-1 bg-white font-mono text-[9px] mock-grid">
+                <div class="grid grid-cols-4 gap-1 px-1.5 py-0.5 bg-sky-50 text-sky-900 font-bold text-[8px] rounded">
+                  <span>WAKTU</span><span>NAMA TAMU</span><span>KEPERLUAN</span><span>DURASI</span>
+                </div>
+                <div class="grid grid-cols-4 gap-1 px-1.5 py-0.5 text-slate-600 border-b border-slate-100 text-[8.5px]">
+                  <span>09:15</span><span class="truncate">Diana Putri</span><span class="truncate">Konsultasi</span><span class="text-sky-700 font-bold">35 Mnt</span>
+                </div>
+                <div class="grid grid-cols-4 gap-1 px-1.5 py-0.5 text-slate-600 text-[8.5px]">
+                  <span>10:00</span><span class="truncate">Ekspedisi</span><span class="truncate">Antar Surat</span><span class="text-sky-700 font-bold">10 Mnt</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-sky-100 text-sky-800 border border-sky-200 mb-2">
               <span>●</span> Kantor Layanan Pelatihan (Simulasi)
             </div>
-            <h3 class="text-lg font-bold text-slate-900 leading-tight">Buku Tamu & Log Pelayanan Digital</h3>
-            <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+            <h3 class="text-base font-bold text-slate-900 leading-tight group-hover:text-sky-700 transition-colors">Buku Tamu & Log Pelayanan Digital</h3>
+            <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">
               Pencatatan digital kunjungan tamu harian (peserta pelatihan, ekspedisi surat, mitra dinas) menggantikan buku tamu fisik manual.
             </p>
-            <div class="mt-3 p-3 rounded-xl bg-purple-50/70 border border-purple-200 text-[11px] text-purple-900 space-y-1">
+            <div class="mt-3 p-2.5 rounded-xl bg-sky-50/60 border border-sky-200 text-[11px] text-sky-950 space-y-1">
               <div><strong>Fungsi Operasional:</strong> Tracking durasi pelayanan dalam menit, evaluasi status selesai vs sedang dilayani, rekap keperluan kunjungan.</div>
               <div class="text-sky-700 font-mono font-medium">Formula: ROW, ROUND(1440), COUNTIFS, Time Delta</div>
             </div>
-            <div class="mt-4 flex flex-wrap gap-1.5">
+            <div class="mt-3 flex flex-wrap gap-1.5">
               <span class="text-[10px] px-2 py-0.5 bg-slate-100 text-slate-700 rounded font-medium">Front Office</span>
               <span class="text-[10px] px-2 py-0.5 bg-slate-100 text-slate-700 rounded font-medium">Guest Log</span>
               <span class="text-[10px] px-2 py-0.5 bg-slate-100 text-slate-700 rounded font-medium">Simulasi Pelayanan</span>
             </div>
           </div>
-          <div class="pt-4 mt-5 border-t border-slate-100 flex items-center justify-between gap-2">
+          <div class="pt-3.5 mt-4 border-t border-slate-100 flex items-center justify-between gap-2">
             <span class="text-slate-500 font-mono text-[11px] truncate">Buku_Tamu_Log_Pelayanan.xlsx</span>
-            <a href="https://docs.google.com/spreadsheets/d/1pWS5-7jHJb0pOqYH_pkcQpu5Qrgd0Zq-/edit?usp=drive_link" target="_blank" class="btn-shimmer btn-ripple inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold bg-purple-700 hover:bg-purple-800 text-white transition-all shrink-0 shadow-md hover:scale-105 active:scale-95">
+            <a href="https://docs.google.com/spreadsheets/d/1pWS5-7jHJb0pOqYH_pkcQpu5Qrgd0Zq-/edit?usp=drive_link" target="_blank" class="btn-shimmer btn-ripple inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold bg-sky-700 hover:bg-sky-800 text-white transition-all shrink-0 shadow-md hover:scale-105 active:scale-95">
               <span>Buka Sheets ↗</span>
             </a>
           </div>
         </div>
 
         <!-- KARTU 13: DUMMY CASE 8 (TRACKER NOTULEN & TINDAK LANJUT) -->
-        <div class="project-card dummy-card spotlight-card reveal-item bg-white rounded-2xl p-6 border border-slate-200 hover:border-purple-400 flex flex-col justify-between relative overflow-hidden shadow-sm hover:shadow-md transition-all">
-          <div class="absolute top-0 right-0 bg-purple-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl uppercase tracking-wider shadow-sm">
-            🛠️ Proyek Simulasi (Dummy)
+        <div class="project-card dummy-card spotlight-card card-glass reveal-item rounded-2xl p-5 border border-slate-200 hover:border-cyan-400 flex flex-col justify-between relative overflow-hidden shadow-sm hover:shadow-xl transition-all group">
+          <div class="absolute top-0 right-0 bg-cyan-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl uppercase tracking-wider shadow-sm z-10">
+            🛠️ Proyek Simulasi
           </div>
           <div>
-            <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold bg-purple-100 text-purple-800 border border-purple-200 mb-3">
+            <!-- Mini Spreadsheet Mockup Header -->
+            <div class="mb-3.5 rounded-xl overflow-hidden border border-cyan-200/90 bg-cyan-50/50 shadow-2xs group-hover:border-cyan-400 transition-all">
+              <div class="px-2.5 py-1.5 bg-cyan-100/70 border-b border-cyan-200/80 flex items-center justify-between text-[10px]">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-rose-400"></span>
+                  <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+                  <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                  <span class="font-mono text-cyan-900 font-semibold ml-1 text-[9px]">Tracker_Notulen.xlsx</span>
+                </div>
+                <span class="px-1.5 py-0.2 rounded bg-cyan-600 text-white font-bold text-[8px]">Action Matrix</span>
+              </div>
+              <div class="p-2 space-y-1 bg-white font-mono text-[9px] mock-grid">
+                <div class="grid grid-cols-4 gap-1 px-1.5 py-0.5 bg-cyan-50 text-cyan-900 font-bold text-[8px] rounded">
+                  <span>AGENDA</span><span>PIC UNIT</span><span>DEADLINE</span><span>STATUS</span>
+                </div>
+                <div class="grid grid-cols-4 gap-1 px-1.5 py-0.5 text-slate-600 border-b border-slate-100 text-[8.5px]">
+                  <span class="truncate">Modul Baru</span><span>Tim Diklat</span><span>25 Nov</span><span class="text-emerald-600 font-bold">🟢 Selesai</span>
+                </div>
+                <div class="grid grid-cols-4 gap-1 px-1.5 py-0.5 text-slate-600 text-[8.5px]">
+                  <span class="truncate">Audit ATK</span><span>Unit GA</span><span>18 Nov</span><span class="text-cyan-700 font-bold">⚡ Diproses</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-cyan-100 text-cyan-800 border border-cyan-200 mb-2">
               <span>●</span> Kantor Layanan Pelatihan (Simulasi)
             </div>
-            <h3 class="text-lg font-bold text-slate-900 leading-tight">Tracker Notulen & Tindak Lanjut Rapat</h3>
-            <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+            <h3 class="text-base font-bold text-slate-900 leading-tight group-hover:text-cyan-700 transition-colors">Tracker Notulen & Tindak Lanjut Rapat</h3>
+            <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">
               Matriks pemantauan eksekusi notulen rapat koordinasi, pembagian tanggung jawab unit, serta pencegahan kelalaian tugas.
             </p>
-            <div class="mt-3 p-3 rounded-xl bg-purple-50/70 border border-purple-200 text-[11px] text-purple-900 space-y-1">
+            <div class="mt-3 p-2.5 rounded-xl bg-cyan-50/60 border border-cyan-200 text-[11px] text-cyan-950 space-y-1">
               <div><strong>Fungsi Operasional:</strong> Deteksi dini status waktu (Aman / Segera Jatuh Tempo / Terlambat) terhadap tanggal acuan rapat.</div>
               <div class="text-cyan-700 font-mono font-medium">Formula: IF, COUNTA, COUNTIFS, Date Comparison</div>
             </div>
-            <div class="mt-4 flex flex-wrap gap-1.5">
+            <div class="mt-3 flex flex-wrap gap-1.5">
               <span class="text-[10px] px-2 py-0.5 bg-slate-100 text-slate-700 rounded font-medium">Meeting Minutes</span>
               <span class="text-[10px] px-2 py-0.5 bg-slate-100 text-slate-700 rounded font-medium">Action Items</span>
               <span class="text-[10px] px-2 py-0.5 bg-slate-100 text-slate-700 rounded font-medium">Simulasi Pelayanan</span>
             </div>
           </div>
-          <div class="pt-4 mt-5 border-t border-slate-100 flex items-center justify-between gap-2">
+          <div class="pt-3.5 mt-4 border-t border-slate-100 flex items-center justify-between gap-2">
             <span class="text-slate-500 font-mono text-[11px] truncate">Tracker_Notulen_Tindak_Lanjut.xlsx</span>
-            <a href="https://docs.google.com/spreadsheets/d/11Ekb1jIQv-Ddz21TwmWFHdz8ZqOonox0/edit?usp=drive_link" target="_blank" class="btn-shimmer btn-ripple inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold bg-purple-700 hover:bg-purple-800 text-white transition-all shrink-0 shadow-md hover:scale-105 active:scale-95">
+            <a href="https://docs.google.com/spreadsheets/d/11Ekb1jIQv-Ddz21TwmWFHdz8ZqOonox0/edit?usp=drive_link" target="_blank" class="btn-shimmer btn-ripple inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold bg-cyan-700 hover:bg-cyan-800 text-white transition-all shrink-0 shadow-md hover:scale-105 active:scale-95">
               <span>Buka Sheets ↗</span>
             </a>
           </div>
         </div>
 
         <!-- KARTU 14: DUMMY CASE 9 (TEMPLATE ADMINISTRASI UMUM 5 MODUL) -->
-        <div class="project-card dummy-card spotlight-card reveal-item bg-white rounded-2xl p-6 border border-slate-200 hover:border-purple-400 flex flex-col justify-between relative overflow-hidden shadow-sm hover:shadow-md transition-all">
-          <div class="absolute top-0 right-0 bg-purple-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl uppercase tracking-wider shadow-sm">
-            🛠️ Proyek Simulasi (Dummy)
+        <div class="project-card dummy-card spotlight-card card-glass reveal-item rounded-2xl p-5 border border-slate-200 hover:border-purple-400 flex flex-col justify-between relative overflow-hidden shadow-sm hover:shadow-xl transition-all group">
+          <div class="absolute top-0 right-0 bg-purple-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl uppercase tracking-wider shadow-sm z-10">
+            🛠️ Proyek Simulasi
           </div>
           <div>
-            <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold bg-purple-100 text-purple-800 border border-purple-200 mb-3">
+            <!-- Mini Spreadsheet Mockup Header -->
+            <div class="mb-3.5 rounded-xl overflow-hidden border border-purple-200/90 bg-purple-50/50 shadow-2xs group-hover:border-purple-400 transition-all">
+              <div class="px-2.5 py-1.5 bg-purple-100/70 border-b border-purple-200/80 flex items-center justify-between text-[10px]">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-rose-400"></span>
+                  <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+                  <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                  <span class="font-mono text-purple-900 font-semibold ml-1 text-[9px]">Dummy Administrasi.xlsx</span>
+                </div>
+                <span class="px-1.5 py-0.2 rounded bg-purple-700 text-white font-bold text-[8px]">5-in-1 Suite</span>
+              </div>
+              <div class="p-2 space-y-1 bg-white font-mono text-[9px] mock-grid">
+                <div class="grid grid-cols-3 gap-1 px-1.5 py-0.5 bg-purple-50 text-purple-900 font-bold text-[8px] rounded">
+                  <span>MODUL SHEET</span><span>FUNGSI SOP</span><span>OTOMASI</span>
+                </div>
+                <div class="grid grid-cols-3 gap-1 px-1.5 py-0.5 text-slate-600 border-b border-slate-100 text-[8.5px]">
+                  <span>Log Surat</span><span>Kendali Masuk/Keluar</span><span class="text-emerald-600 font-bold">Cond. Format</span>
+                </div>
+                <div class="grid grid-cols-3 gap-1 px-1.5 py-0.5 text-slate-600 text-[8.5px]">
+                  <span>Vendor & ATK</span><span>Katalog Pengadaan</span><span class="text-purple-700 font-bold">COUNTIF/VLOOK</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-purple-100 text-purple-800 border border-purple-200 mb-2">
               <span>●</span> Desain Sistem Mandiri (Simulasi)
             </div>
-            <h3 class="text-lg font-bold text-slate-900 leading-tight">Template Administrasi Operasional 5 Modul Terintegrasi</h3>
-            <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+            <h3 class="text-base font-bold text-slate-900 leading-tight group-hover:text-purple-700 transition-colors">Template Administrasi Operasional 5 Modul Terintegrasi</h3>
+            <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">
               Perancangan mandiri dari nol (<em>from scratch</em>) template administrasi operasional 5 modul untuk mensimulasikan alur kerja kantor nyata.
             </p>
-            <div class="mt-3 p-3 rounded-xl bg-purple-50/70 border border-purple-200 text-[11px] text-purple-900 space-y-1">
+            <div class="mt-3 p-2.5 rounded-xl bg-purple-50/60 border border-purple-200 text-[11px] text-purple-950 space-y-1">
               <div><strong>Struktur 5 Modul:</strong> Log Surat Masuk-Keluar (Conditional Formatting), Database Vendor (COUNTIF), Presensi (IF), Permintaan ATK, & Daily Checklist SOP.</div>
               <div><strong>Tersedia:</strong> Versi Workbook Excel & Database Vendor Terpusat (CSV).</div>
             </div>
-            <div class="mt-4 flex flex-wrap gap-1.5">
+            <div class="mt-3 flex flex-wrap gap-1.5">
               <span class="text-[10px] px-2 py-0.5 bg-slate-100 text-slate-700 rounded font-medium">System Design</span>
               <span class="text-[10px] px-2 py-0.5 bg-slate-100 text-slate-700 rounded font-medium">Formula Automation</span>
               <span class="text-[10px] px-2 py-0.5 bg-slate-100 text-slate-700 rounded font-medium">Workflow SOP</span>
             </div>
           </div>
-          <div class="pt-4 mt-5 border-t border-slate-100 flex items-center justify-between gap-2">
+          <div class="pt-3.5 mt-4 border-t border-slate-100 flex items-center justify-between gap-2">
             <span class="text-slate-500 font-mono text-[11px] truncate">Dummy Administrasi.xlsx</span>
             <div class="flex items-center gap-1.5 shrink-0">
               <a href="https://drive.google.com/file/d/19ctiBT2fYtIxhsPEIQAl3yHSlh1PsK0Q/view?usp=drive_link" target="_blank" title="Buka Database Vendor CSV" class="btn-ripple px-2.5 py-2 rounded-xl bg-slate-100 hover:bg-purple-100 text-slate-700 hover:text-purple-700 transition-all border border-slate-200 text-[11px] font-bold shadow-xs hover:scale-105">
@@ -1039,7 +1689,7 @@
         </div>
 
       </div>
-    </div>
+        </div>
   </section>
 
   <!-- LIVE INTERACTIVE DEMO -->
@@ -1564,6 +2214,23 @@
 
   <!-- JAVASCRIPT: ADVANCED EYE-CATCHING ANIMATIONS, 3D TILT, CONSTELLATION, & LOGIC -->
   <script>
+    // 0. THEME SWITCHER (DARK MODE & LIGHT MODE ENGINE)
+    function updateThemeUI(isDark) {
+      const floatLabel = document.getElementById('floating-theme-label');
+      if (floatLabel) {
+        floatLabel.textContent = isDark ? 'Mode: Gelap 🌙' : 'Mode: Terang ☀️';
+      }
+    }
+
+    function toggleTheme() {
+      const isDark = document.documentElement.classList.toggle('dark');
+      try {
+        localStorage.setItem('jihan_theme', isDark ? 'dark' : 'light');
+      } catch(e) {}
+      updateThemeUI(isDark);
+      showToast(isDark ? 'Mode Gelap (Executive Dark) Aktif 🌙' : 'Mode Terang (Clean Light) Aktif ☀️');
+    }
+
     // 1. TOP NEON SCROLL PROGRESS BAR
     window.addEventListener('scroll', () => {
       const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
@@ -1878,30 +2545,30 @@
       };
 
       for (let key in buttons) {
-        buttons[key].className = 'btn-ripple px-3.5 py-2 rounded-xl bg-white text-slate-700 hover:bg-slate-100 border border-slate-300 transition-all hover:scale-105 active:scale-95';
+        buttons[key].className = 'btn-ripple px-3.5 py-2 rounded-xl bg-white dark:bg-slate-800/90 text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-300 dark:border-slate-700 transition-all hover:scale-105 active:scale-95';
       }
 
       if (cat === 'all') {
-        buttons.all.className = 'btn-ripple px-3.5 py-2 rounded-xl bg-slate-900 text-white shadow-md transition-all hover:scale-105 active:scale-95';
+        buttons.all.className = 'btn-ripple px-3.5 py-2 rounded-xl bg-slate-900 dark:bg-teal-600 text-white shadow-md transition-all hover:scale-105 active:scale-95';
         allCards.forEach(c => {
           c.style.display = 'flex';
           c.classList.add('scale-100');
         });
         showToast("Menampilkan Seluruh Portofolio (14)");
       } else if (cat === 'dummy') {
-        buttons.dummy.className = 'btn-ripple px-3.5 py-2 rounded-xl bg-purple-600 text-white shadow-md transition-all hover:scale-105 active:scale-95';
+        buttons.dummy.className = 'btn-ripple px-3.5 py-2 rounded-xl bg-purple-600 dark:bg-purple-600 text-white shadow-md transition-all hover:scale-105 active:scale-95';
         allCards.forEach(c => {
           c.style.display = c.classList.contains('dummy-card') ? 'flex' : 'none';
         });
         showToast("Menampilkan Simulasi Admin & Operasi Dummy (9) 🏢");
       } else if (cat === 'case') {
-        buttons.case.className = 'btn-ripple px-3.5 py-2 rounded-xl bg-blue-600 text-white shadow-md transition-all hover:scale-105 active:scale-95';
+        buttons.case.className = 'btn-ripple px-3.5 py-2 rounded-xl bg-blue-600 dark:bg-blue-600 text-white shadow-md transition-all hover:scale-105 active:scale-95';
         allCards.forEach(c => {
           c.style.display = c.classList.contains('case-card') ? 'flex' : 'none';
         });
         showToast("Menampilkan Studi Kasus Industri & Viz (4) 📚");
       } else if (cat === 'real') {
-        buttons.real.className = 'btn-ripple px-3.5 py-2 rounded-xl bg-emerald-600 text-white shadow-md transition-all hover:scale-105 active:scale-95';
+        buttons.real.className = 'btn-ripple px-3.5 py-2 rounded-xl bg-emerald-600 dark:bg-emerald-600 text-white shadow-md transition-all hover:scale-105 active:scale-95';
         allCards.forEach(c => {
           c.style.display = c.classList.contains('real-card') ? 'flex' : 'none';
         });
@@ -2103,6 +2770,9 @@
 
     // INITIALIZE ALL VISUALS & ENGINES ON DOM READY
     window.addEventListener('DOMContentLoaded', () => {
+      // Sync theme label with active mode
+      const isCurrentlyDark = document.documentElement.classList.contains('dark');
+      updateThemeUI(isCurrentlyDark);
       renderAdminTable();
       renderUmkmTable(sampleUmkm);
       animateCounters();
