@@ -6,7 +6,7 @@
   <style>
     @page {
       size: A4 portrait;
-      margin: 12mm 16mm 12mm 16mm;
+      margin: 22mm 22mm 20mm 22mm;
     }
     * {
       box-sizing: border-box;
@@ -19,186 +19,181 @@
       background: #ffffff;
       margin: 0;
       padding: 0;
-      font-size: 9pt;
-      line-height: 1.45;
+      font-size: 10pt;
+      line-height: 1.6;
     }
-    .page {
+    .container {
       width: 100%;
       height: 100%;
+      display: flex;
+      flex-direction: column;
     }
 
     /* HEADER */
     .header {
-      border-bottom: 2px solid #0f766e;
-      padding-bottom: 8px;
-      margin-bottom: 12px;
+      border-bottom: 2.5px solid #0d9488;
+      padding-bottom: 12px;
+      margin-bottom: 24px;
     }
     .candidate-name {
-      font-size: 18pt;
+      font-size: 22pt;
       font-weight: 800;
       color: #0f172a;
-      margin: 0 0 2px 0;
+      margin: 0 0 3px 0;
       letter-spacing: -0.5px;
     }
-    .candidate-title {
-      font-size: 9.5pt;
-      font-weight: 600;
+    .candidate-role {
+      font-size: 11pt;
+      font-weight: 700;
       color: #0d9488;
-      margin: 0 0 6px 0;
+      margin: 0 0 10px 0;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
-    .contact-line {
-      font-size: 8.5pt;
-      color: #475569;
+    .contact-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 14px;
+      gap: 18px;
+      font-size: 9pt;
+      color: #475569;
     }
     .contact-item {
       display: inline-flex;
       align-items: center;
-      gap: 4px;
+      gap: 5px;
     }
     .contact-item a {
-      color: #0f766e;
+      color: #0d9488;
       text-decoration: none;
       font-weight: 600;
     }
 
-    /* DOCUMENT TITLE */
-    .doc-title-box {
-      margin-bottom: 10px;
-    }
-    .doc-title {
-      font-size: 11.5pt;
-      font-weight: 800;
-      color: #0f172a;
-      text-transform: uppercase;
-      letter-spacing: 0.3px;
-      margin: 0 0 2px 0;
-    }
-    .doc-subtitle {
-      font-size: 8pt;
-      color: #64748b;
-      margin: 0;
-    }
-
-    /* LETTER CONTENT */
-    p {
-      margin: 0 0 8px 0;
-      text-align: justify;
-    }
-
-    /* PORTAL ACCESS BOX (CLEAN WITH QR) */
+    /* 1. KOTAK AKSES PORTOFOLIO INTERAKTIF */
     .portal-box {
-      border: 1.5px solid #0d9488;
+      border: 1.5px solid #14b8a6;
       background-color: #f0fdfa;
-      border-radius: 8px;
-      padding: 10px 14px;
-      margin: 10px 0 12px 0;
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-bottom: 28px;
       display: table;
       width: 100%;
     }
-    .portal-content {
+    .portal-left {
       display: table-cell;
       vertical-align: middle;
-      padding-right: 14px;
+      padding-right: 20px;
     }
-    .portal-heading {
-      font-size: 10pt;
+    .portal-title {
+      font-size: 12pt;
       font-weight: 800;
       color: #0f766e;
-      margin-bottom: 3px;
+      margin: 0 0 6px 0;
     }
     .portal-desc {
-      font-size: 8.2pt;
+      font-size: 9.2pt;
       color: #334155;
-      line-height: 1.35;
-      margin-bottom: 8px;
+      line-height: 1.5;
+      margin: 0 0 12px 0;
     }
-    .portal-link-btn {
+    .portal-actions {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .btn-portal {
       display: inline-block;
       background: #0d9488;
       color: #ffffff !important;
       text-decoration: none;
       font-weight: 700;
-      font-size: 8.5pt;
-      padding: 5px 14px;
-      border-radius: 5px;
+      font-size: 9.5pt;
+      padding: 8px 18px;
+      border-radius: 6px;
+      box-shadow: 0 2px 4px rgba(13, 148, 136, 0.2);
     }
-    .portal-url-text {
-      display: inline-block;
-      font-size: 8pt;
-      color: #0f766e;
+    .url-link {
+      font-size: 9pt;
+      color: #0d9488;
       font-weight: 600;
-      margin-left: 8px;
-      vertical-align: middle;
+      text-decoration: underline;
     }
-    .portal-qr {
+    .portal-right {
       display: table-cell;
-      width: 76px;
+      width: 95px;
       text-align: center;
       vertical-align: middle;
     }
-    .qr-image {
-      width: 68px;
-      height: 68px;
+    .qr-img {
+      width: 85px;
+      height: 85px;
       background: #ffffff;
-      padding: 3px;
-      border-radius: 5px;
+      padding: 4px;
+      border-radius: 8px;
       border: 1px solid #ccfbf1;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
     }
-    .qr-text {
-      font-size: 6.5pt;
+    .qr-label {
+      font-size: 7.5pt;
       color: #0f766e;
-      font-weight: 700;
-      margin-top: 2px;
+      font-weight: 800;
+      margin-top: 4px;
       text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
 
-    /* SUMMARY BULLETS */
-    .section-heading {
-      font-size: 9.5pt;
+    /* 2. RINGKASAN PORTOFOLIO & BERKAS KERJA TERLAMPIR */
+    .section-title {
+      font-size: 11pt;
       font-weight: 800;
       color: #0f172a;
-      margin: 10px 0 6px 0;
       text-transform: uppercase;
-      letter-spacing: 0.2px;
+      letter-spacing: 0.5px;
+      margin: 0 0 14px 0;
     }
     ul.summary-list {
-      margin: 0 0 10px 0;
-      padding-left: 18px;
+      margin: 0;
+      padding-left: 20px;
     }
     ul.summary-list li {
-      margin-bottom: 5px;
-      font-size: 8.5pt;
-      line-height: 1.38;
+      font-size: 9.5pt;
+      line-height: 1.6;
       color: #334155;
+      margin-bottom: 14px;
+      text-align: justify;
     }
-    ul.summary-list strong {
+    ul.summary-list li strong {
       color: #0f172a;
+      font-weight: 700;
     }
 
-    /* SIGNATURE */
-    .sign-table {
-      width: 100%;
-      margin-top: 10px;
-      border-collapse: collapse;
-    }
-    .sign-table td {
-      vertical-align: top;
+    /* FOOTER */
+    .footer {
+      margin-top: 28px;
+      padding-top: 14px;
+      border-top: 1px solid #e2e8f0;
       font-size: 8.5pt;
+      color: #64748b;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer a {
+      color: #0d9488;
+      text-decoration: none;
+      font-weight: 600;
     }
   </style>
 </head>
 <body>
 
-  <div class="page">
+  <div class="container">
     
     <!-- HEADER -->
     <div class="header">
       <h1 class="candidate-name">Jihan Kusumawardhani</h1>
-      <div class="candidate-title">Administrasi Perkantoran • Operasional Bisnis • Kurasi Data • Reporting</div>
-      <div class="contact-line">
+      <div class="candidate-role">Talenta Kewirausahaan • Administrasi & Operasional Data</div>
+      <div class="contact-row">
         <span class="contact-item">📞 WhatsApp: <a href="https://wa.me/6289671834902">+62 896-7183-4902</a></span>
         <span class="contact-item">✉️ Email: <a href="mailto:jihankusumawwwardhani@gmail.com">jihankusumawwwardhani@gmail.com</a></span>
         <span class="contact-item">🔗 LinkedIn: <a href="https://www.linkedin.com/in/jihankusumaw/">linkedin.com/in/jihankusumaw</a></span>
@@ -206,50 +201,33 @@
       </div>
     </div>
 
-    <!-- DOCUMENT TITLE -->
-    <div class="doc-title-box">
-      <div class="doc-title">Pengantar Berkas Portofolio Kerja</div>
-      <div class="doc-subtitle">Lampiran Resmi Pengajuan Lamaran Pekerjaan — Format: Portofolio_NamaPeserta_Jabatan.pdf</div>
-    </div>
-
-    <!-- BODY TEXT -->
-    <p>
-      Yth. <strong>Bapak / Ibu Tim Rekruter & HRD</strong>,
-    </p>
-    <p>
-      Bersama dokumen ini, saya melampirkan berkas portofolio resmi sebagai bukti kompetensi, pengalaman kerja, serta hasil karya proyek yang relevan dengan posisi yang dilamar. Portofolio saya mencakup <strong>14 modul lembar kerja administrasi operasional terautomasi</strong>, studi kasus analisis data korporasi, serta kurasi ribuan basis data riil lapangan.
-    </p>
-    <p>
-      Mengingat seluruh lembar kerja tersebut dibangun menggunakan <strong>formula aktif</strong> (VLOOKUP, INDEX/MATCH, SUMIF, COUNTIFS, Dynamic Dashboard) dan simulasi operasional interaktif yang membutuhkan interaksi langsung untuk memeriksa struktur tabel dan perhitungannya, seluruh lembar kerja asli telah dipublikasikan secara transparan pada portal portofolio online:
-    </p>
-
-    <!-- PORTAL ACCESS BOX (CLICKABLE LINK + QR CODE) -->
+    <!-- 1. KOTAK AKSES PORTOFOLIO INTERAKTIF -->
     <div class="portal-box">
-      <div class="portal-content">
-        <div class="portal-heading">🌐 Akses Portofolio Interaktif (14 Sheets & Sertifikat)</div>
+      <div class="portal-left">
+        <div class="portal-title">🌐 Akses Portofolio Interaktif (14 Sheets & Sertifikat)</div>
         <div class="portal-desc">
           Klik tombol di bawah ini atau scan kode QR untuk langsung memeriksa formula asli di Google Sheets, mencoba simulasi dashboard, dan melihat verifikasi 5 sertifikat resmi di Google Drive:
         </div>
-        <div>
-          <a href="https://jihanbuildspace.github.io/portofolio-data/" class="portal-link-btn">
+        <div class="portal-actions">
+          <a href="https://jihanbuildspace.github.io/portofolio-data/" class="btn-portal">
             Buka Portofolio Interaktif ↗
           </a>
-          <a href="https://jihanbuildspace.github.io/portofolio-data/" class="portal-url-text">
+          <a href="https://jihanbuildspace.github.io/portofolio-data/" class="url-link">
             https://jihanbuildspace.github.io/portofolio-data/
           </a>
         </div>
       </div>
-      <div class="portal-qr">
-        <img src="qrcode-portfolio.png" class="qr-image" alt="QR Code Portofolio">
-        <div class="qr-text">Scan via HP</div>
+      <div class="portal-right">
+        <img src="qrcode-portfolio.png" class="qr-img" alt="QR Code Portofolio">
+        <div class="qr-label">SCAN VIA HP</div>
       </div>
     </div>
 
-    <!-- RINGKASAN REKAPITULASI PROYEK & KEAHLIAN -->
-    <div class="section-heading">Ringkasan Portofolio & Berkas Kerja Terlampir:</div>
+    <!-- 2. RINGKASAN PORTOFOLIO & BERKAS KERJA TERLAMPIR -->
+    <div class="section-title">RINGKASAN PORTOFOLIO & BERKAS KERJA TERLAMPIR:</div>
     <ul class="summary-list">
       <li>
-        <strong>Administrasi Operasional Perkantoran (10 Modul):</strong> Rancang bangun pembukuan kas kecil (imprest system), slip gaji & absensi karyawan otomatis, faktur penjualan PPN 11%, register arsip digital, monitoring kontrak vendor (SLA), log pelayanan kantor, notulen rapat, serta paket template operasional 5-in-1.
+        <strong>Administrasi Operasional Perkantoran (10 Modul):</strong> Rancang bangun pembukuan kas kecil (<em>imprest system</em>), slip gaji & absensi karyawan otomatis, faktur penjualan PPN 11%, register arsip digital, monitoring kontrak vendor (SLA), log pelayanan kantor, notulen rapat, serta paket template operasional 5-in-1.
       </li>
       <li>
         <strong>Kurasi Basis Data Riil (1.000+ Baris Data):</strong> Pembersihan data (<em>data cleansing</em>), deduplikasi, validasi sintaks nomor WhatsApp bisnis, dan kurasi tautan Instagram untuk 1.000+ UMKM di wilayah Jawa Tengah.
@@ -262,24 +240,11 @@
       </li>
     </ul>
 
-    <p style="margin-top: 10px;">
-      Saya menyatakan bahwa seluruh data, rekapitulasi kerja, dan sertifikat yang tercantum adalah benar dan dapat dipertanggungjawabkan. Saya siap mengikuti tahapan uji praktik kerja maupun wawancara lebih lanjut. Terima kasih atas perhatian dan kesempatan yang diberikan.
-    </p>
-
-    <!-- SIGNATURE -->
-    <table class="sign-table">
-      <tr>
-        <td style="width: 55%; color: #64748b; font-size: 8pt; vertical-align: bottom;">
-          Dokumen resmi terverifikasi cloud.<br>
-          Tautan aktif dapat langsung diklik pada file PDF ini.
-        </td>
-        <td style="width: 45%; text-align: right; vertical-align: top;">
-          Hormat saya,<br><br><br>
-          <strong style="color: #0f172a; font-size: 9.5pt;">Jihan Kusumawardhani</strong><br>
-          <span style="color: #64748b; font-size: 8pt;">Kandidat Administrasi & Data Operations</span>
-        </td>
-      </tr>
-    </table>
+    <!-- FOOTER -->
+    <div class="footer">
+      <span>Portofolio Talenta Kewirausahaan — Jihan Kusumawardhani</span>
+      <span>Akses Online: <a href="https://jihanbuildspace.github.io/portofolio-data/">jihanbuildspace.github.io/portofolio-data</a></span>
+    </div>
 
   </div>
 
