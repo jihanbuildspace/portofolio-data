@@ -15,7 +15,9 @@ ehthumbs.db
 [Nn]onprofit
 Desktop.ini
 
-# IDE & Editor files
+# Office temp files
+~$*
+
 .vscode/
 .idea/
 *.sublime-project
